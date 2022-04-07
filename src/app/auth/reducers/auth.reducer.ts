@@ -12,7 +12,7 @@ export interface AuthState {
 }
 
 export const initialState: AuthState = {
-  auth: new AuthDTO('',''),
+  auth: new AuthDTO('','','',''),
   loading: false,
   loaded: false,
   error: null,
