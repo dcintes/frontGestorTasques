@@ -7,7 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { appReducers } from './app.reducer';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-//import { EffectsModule } from '@ngrx/effects';
+import { EffectsModule } from '@ngrx/effects';
 import { AuthModule } from './auth/auth.module';
 import { EffectsArray } from './app.effects';
 
