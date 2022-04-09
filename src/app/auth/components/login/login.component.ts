@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/app.reducer';
-import { AuthDTO } from '../models/auth.dto';
-import * as AuthAction from '../actions';
+import { AuthDTO } from '../../models/auth.dto';
+import * as AuthAction from '../../actions';
 import { Router } from '@angular/router';
 
 @Component({
