@@ -5,6 +5,7 @@ import {  map, catchError, exhaustMap } from 'rxjs/operators'
 import { AuthService } from "../Services/auth.service";
 import * as authAction from '../actions';
 import { AuthDTO } from "../models/auth.dto";
+import { LocalStorageService } from "src/app/shared/services/local-storage.service";
 
 
 @Injectable()
@@ -12,7 +13,8 @@ export class AuthEffects {
 
   constructor(
 		private actions$: Actions,
-		private authService: AuthService
+		private authService: AuthService,
+    private localStorageService: LocalStorageService,
 	) {}
 
   login$ = createEffect(() =>
@@ -22,6 +24,7 @@ export class AuthEffects {
       this.authService.login(auth).pipe(
         map((token) => {
           console.log(token);
+          this.localStorageService.set('access_token', token.token);
           return authAction.loginSuccess({ 
             auth: new AuthDTO(token.user_id, token.token, auth.email, auth.password)
           })

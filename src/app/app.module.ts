@@ -10,7 +10,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EffectsModule } from '@ngrx/effects';
 import { AuthModule } from './auth/auth.module';
 import { EffectsArray } from './app.effects';
-
+import { HttpClientModule } from '@angular/common/http';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -18,11 +19,13 @@ import { EffectsArray } from './app.effects';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     StoreModule.forRoot(appReducers),
-    //EffectsModule.forRoot(EffectsArray),
+    EffectsModule.forRoot(EffectsArray),
     AuthModule,
     BrowserAnimationsModule,
+    MatSnackBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

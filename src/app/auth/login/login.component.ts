@@ -4,6 +4,7 @@ import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/app.reducer';
 import { AuthDTO } from '../models/auth.dto';
 import * as AuthAction from '../actions';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -19,6 +20,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
+    private router: Router,
     private store: Store<AppState>,
     ) {
     this.auth = new AuthDTO('', '','','');
@@ -37,6 +39,13 @@ export class LoginComponent implements OnInit {
     this.loginForm = this.formBuilder.group({
       email: this.email,
       password: this.password,
+    });
+
+    this.store.select('auth').subscribe(async (auth) => {
+      if(auth.auth.token) {
+        this.router.navigate(['/']);
+
+      }
     });
   }
 
