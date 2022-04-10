@@ -41,10 +41,9 @@ export class LoginComponent implements OnInit {
       password: this.password,
     });
 
-    this.store.select('auth').subscribe(async (auth) => {
-      if(auth.auth.token) {
+    this.store.select('auth').subscribe(auth => {
+      if(auth.loaded && auth.auth.token != '') {
         this.router.navigate(['/']);
-
       }
     });
   }

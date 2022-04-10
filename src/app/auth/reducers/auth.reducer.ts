@@ -40,6 +40,10 @@ const _authReducer = createReducer(
     loaded: false,
     error: payload
   })),
+  on(authActions.pushAuth, (state, {auth}) => ({
+    ...state,
+    auth: auth,
+  })),
   on(authActions.logout, (state) => (
     initialState
   )),

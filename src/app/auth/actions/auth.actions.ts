@@ -16,6 +16,11 @@ export const loginError = createAction(
   props<{ payload: any }>()
 );
 
+export const pushAuth = createAction(
+  '[Auth] Inicialitza auth si es troba en local storage',
+  props<{ auth: AuthDTO }>()
+);
+
 export const logout = createAction(
   '[Auth] logout'
 );

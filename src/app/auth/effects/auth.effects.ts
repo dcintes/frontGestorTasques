@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { of } from "rxjs";
 import {  map, catchError, exhaustMap } from 'rxjs/operators'
-import { AuthService } from "../Services/auth.service";
+import { AuthService } from "../services/auth.service";
 import * as authAction from '../actions';
 import { AuthDTO } from "../models/auth.dto";
 import { LocalStorageService } from "src/app/shared/services/local-storage.service";
@@ -25,8 +25,9 @@ export class AuthEffects {
         map((token) => {
           console.log(token);
           this.localStorageService.set('access_token', token.token);
+          this.localStorageService.set('user_id', token.user_id);
           return authAction.loginSuccess({ 
-            auth: new AuthDTO(token.user_id, token.token, auth.email, auth.password)
+            auth: new AuthDTO('', '', token.user_id, token.token)
           })
         }),
         catchError((err) => {
@@ -35,6 +36,18 @@ export class AuthEffects {
         })
       ))
     )
-  )
+  );
+
+  logout$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(authAction.logout),
+      map(() => {
+        this.localStorageService.remove('access_token');
+      })
+    ),
+    { dispatch: false }
+  );
+
+
 
 }

@@ -1,1 +1,38 @@
-<p>user-home works!</p>
+<mat-toolbar color="primary" class="flex items-center">
+  <span>My App</span>
+
+  <span class="flex-auto"></span>
+
+  <button mat-icon-button class="flex items-center" aria-label="Editar l'usuari">
+    <mat-icon>person</mat-icon>
+  </button>
+  <button mat-icon-button class="flex items-center" aria-label="Tancar la sessió actual" (click)="logout()">
+    <mat-icon>logout</mat-icon>
+  </button>
+</mat-toolbar>
+
+<mat-tab-group mat-stretch-tabs>
+
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <div class="flex flex-col items-center m-2">
+        <mat-icon class="example-tab-icon">group_work</mat-icon>
+        Grups
+      </div>
+    </ng-template>
+
+    <app-user-groups></app-user-groups>
+
+  </mat-tab>
+
+  <mat-tab label="Second">
+    <ng-template mat-tab-label>
+      <div class="flex flex-col items-center">
+        <mat-icon class="example-tab-icon">mail</mat-icon>
+        Invitacions
+      </div>
+    </ng-template>
+    Content 2
+  </mat-tab>
+
+</mat-tab-group>

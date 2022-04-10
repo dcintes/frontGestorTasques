@@ -10,8 +10,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EffectsModule } from '@ngrx/effects';
 import { AuthModule } from './auth/auth.module';
 import { EffectsArray } from './app.effects';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { UserModule } from './user/user.module';
+import { environment } from 'src/environments/environment';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { AuthInterceptorService } from './shared/services/auth-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -24,10 +28,21 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     StoreModule.forRoot(appReducers),
     EffectsModule.forRoot(EffectsArray),
     AuthModule,
+    UserModule,
     BrowserAnimationsModule,
     MatSnackBarModule,
+    StoreDevtoolsModule.instrument({
+      maxAge:25,
+      logOnly: environment.production
+    }),
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
