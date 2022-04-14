@@ -5,20 +5,26 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { RouterModule } from '@angular/router';
+import { RegisterComponent } from './components/register/register.component';
+import { MatIconModule } from '@angular/material/icon';
 
 
 
 
 @NgModule({
   declarations: [
-    LoginComponent
+    LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     CommonModule,
+    RouterModule,
     ReactiveFormsModule,
     MatInputModule,
     MatFormFieldModule,
     MatButtonModule,
+    MatIconModule,
   ],
 })
 export class AuthModule { }

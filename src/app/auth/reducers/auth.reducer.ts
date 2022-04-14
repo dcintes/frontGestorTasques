@@ -1,10 +1,12 @@
 import { AuthDTO } from "../models/auth.dto";
 import { createReducer, on } from '@ngrx/store';
 import * as authActions from "../actions";
+import { RegisterDTO } from "../models/register.dto";
 
 
 export interface AuthState {
   auth: AuthDTO,
+  register: RegisterDTO,
   loading: boolean;
   loaded: boolean;
   error: any;
@@ -13,6 +15,7 @@ export interface AuthState {
 
 export const initialState: AuthState = {
   auth: new AuthDTO('','','',''),
+  register: new RegisterDTO('','','',''),
   loading: false,
   loaded: false,
   error: null,
@@ -34,7 +37,7 @@ const _authReducer = createReducer(
     loaded: true,
     auth: auth
   })),
-  on(authActions.loginError, (state, {payload}) => ({
+  on(authActions.error, (state, {payload}) => ({
     ...state,
     loading: false,
     loaded: false,
@@ -47,6 +50,19 @@ const _authReducer = createReducer(
   on(authActions.logout, (state) => (
     initialState
   )),
+  on(authActions.register, (state, {register}) => ({
+    ...state,
+    loading: true,
+    loaded: false,
+    register: register,
+    action: 'register',
+  })),
+  on(authActions.registerSuccess, (state, {auth}) => ({
+    ...state,
+    loading: false,
+    loaded: true,
+    auth: auth
+  })),
 );
 
 export function authReducer(state: any, action: any) {

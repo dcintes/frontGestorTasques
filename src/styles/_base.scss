@@ -1,7 +1,11 @@
 html,
 body {
-  @apply h-full;
+  @apply h-full text-gray-600;
 }
 body {
   @apply font-sans m-0 bg-primary-200;
+}
+
+h1 {
+  @apply border-primary-500 border-b-4 pb-2;
 }

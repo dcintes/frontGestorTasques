@@ -32,7 +32,7 @@ export class AuthEffects {
         }),
         catchError((err) => {
           console.log(err);
-          return of(authAction.loginError({payload: err}))
+          return of(authAction.error({payload: err}))
         })
       ))
     )
@@ -48,6 +48,25 @@ export class AuthEffects {
     { dispatch: false }
   );
 
-
+  register$ = createEffect(() =>
+  this.actions$.pipe(
+    ofType(authAction.register),
+    exhaustMap(( { register } ) =>
+    this.authService.register(register).pipe(
+      map((auth) => {
+        console.log(auth);
+        this.localStorageService.set('access_token', auth.token);
+        this.localStorageService.set('user_id', auth.user_id);
+        return authAction.registerSuccess({ 
+          auth: new AuthDTO('', '', auth.user_id, auth.token)
+        })
+      }),
+      catchError((err) => {
+        console.log(err);
+        return of(authAction.error({payload: err}))
+      })
+    ))
+  )
+);
 
 }

@@ -16,6 +16,7 @@ import { UserModule } from './user/user.module';
 import { environment } from 'src/environments/environment';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AuthInterceptorService } from './shared/services/auth-interceptor.service';
+import { RegisterComponent } from './auth/components/register/register.component';
 
 @NgModule({
   declarations: [

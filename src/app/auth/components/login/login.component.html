@@ -1,29 +1,33 @@
-<form class="flex flex-col justify-center min-h-screen" [formGroup]="loginForm" (ngSubmit)="login()">
+<div class="flex flex-col justify-center min-h-screen mx-10">
+  <form class="flex flex-col justify-center mb-5" [formGroup]="loginForm" (ngSubmit)="login()">
 
-  <h1>Login</h1>
+    <h1>Login</h1>
 
-  <mat-form-field class="example-full-width" appearance="fill">
-    <mat-label>Email</mat-label>
-    <input type="email" matInput [formControl]="email" placeholder="Ex. pat@example.com">
-    <mat-error *ngIf="email.hasError('pattern')">
-      El correu no es valid
-    </mat-error>
-    <mat-error *ngIf="email.hasError('required')">
-      El correu és <strong>obligatori</strong>
-    </mat-error>
-  </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input type="email" matInput [formControl]="email" placeholder="Ex. pat@example.com">
+      <mat-error *ngIf="email.hasError('pattern')">
+        El correu no es valid
+      </mat-error>
+      <mat-error *ngIf="email.hasError('required')">
+        El correu és <strong>obligatori</strong>
+      </mat-error>
+    </mat-form-field>
 
-  <mat-form-field class="example-full-width" appearance="fill">
-    <mat-label>Password</mat-label>
-    <input type="password" matInput [formControl]="password">
-    <mat-error *ngIf="password.hasError('required')">
-      La contrasenya és <strong>obligatoria</strong>
-    </mat-error>
-    <mat-error *ngIf="password.hasError('minLength') || password.hasError('maxLength')">
-      La contrasenya és ha de tenir entre 8 i 16 caràcters
-    </mat-error>
-  </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input type="password" matInput [formControl]="password">
+      <mat-error *ngIf="password.hasError('required')">
+        La contrasenya és <strong>obligatoria</strong>
+      </mat-error>
+      <mat-error *ngIf="password.hasError('minLength') || password.hasError('maxLength')">
+        La contrasenya és ha de tenir entre 8 i 16 caràcters
+      </mat-error>
+    </mat-form-field>
 
-  <button mat-raised-button color="primary" type="submit" [disabled]="!loginForm.valid">Login</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="!loginForm.valid">Login</button>
 
-</form>
+  </form>
+
+  <a mat-raised-button type="button" routerLink="/register">Registrar-se</a>
+</div>
