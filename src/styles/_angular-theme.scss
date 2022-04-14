@@ -1,0 +1,98 @@
+@use "@angular/material" as mat;
+
+// Incluimos los estilos comunes de Angular Material
+@include mat.core();
+
+$text-dark: #000000;
+$text-light: #ffffff;
+
+/** Definimos los mapas de colores personalizados **/
+$custom-primary-map: (
+  50: #e3f2fd,
+  100: #bbdefb,
+  200: #90c9f9,
+  300: #63b4f6,
+  400: #42a4f5,
+  500: #2194f3,
+  600: #1f87e5,
+  700: #1a75d2,
+  800: #1764c0,
+  900: #1045a1,
+  contrast: (
+    50: $text-dark,
+    100: $text-dark,
+    200: $text-dark,
+    300: $text-dark,
+    400: $text-dark,
+    500: $text-dark,
+    600: $text-dark,
+    700: $text-light,
+    800: $text-light,
+    900: $text-light,
+  ),
+);
+
+$custom-accent-map: (
+  50: #f2e7fe,
+  100: #dbc4fb,
+  200: #c39dfa,
+  300: #aa71f9,
+  400: #964df6,
+  500: #8021f3,
+  600: #741bec,
+  700: #630de4,
+  800: #5200df,
+  900: #3000d8,
+  contrast: (
+    50: $text-dark,
+    100: $text-dark,
+    200: $text-dark,
+    300: $text-dark,
+    400: $text-dark,
+    500: $text-light,
+    600: $text-light,
+    700: $text-light,
+    800: $text-light,
+    900: $text-light,
+  ),
+);
+
+// Definimos las paletas basadas en los mapas de colores personalizados
+$primary-palette: mat.define-palette($custom-primary-map);
+$accent-palette: mat.define-palette($custom-accent-map);
+
+// Creamos el objeto del tema personalizado claro (podríamos crear otro para el modo oscuro)
+$custom-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $primary-palette,
+      accent: $accent-palette,
+    ),
+  )
+);
+
+// Y finalmente incluimos los estilos del tema en todos nuestros componentes
+@include mat.all-component-themes($custom-theme);
+
+/** Tipografía personalizada **/
+$custom-typography: mat.define-typography-config(
+  $font-family: "Poppins, sans-serif",
+  $display-4:
+    mat.define-typography-level(112px, 112px, 300, $letter-spacing: -0.05em),
+  $display-3:
+    mat.define-typography-level(56px, 56px, 400, $letter-spacing: -0.02em),
+  $display-2:
+    mat.define-typography-level(45px, 48px, 400, $letter-spacing: -0.005em),
+  $display-1: mat.define-typography-level(34px, 40px, 400),
+  $headline: mat.define-typography-level(34px, 32px, 400),
+  $title: mat.define-typography-level(24px, 32px, 500),
+  $subheading-2: mat.define-typography-level(20px, 28px, 400),
+  $subheading-1: mat.define-typography-level(15px, 24px, 400),
+  $body-2: mat.define-typography-level(16px, 28px, 500),
+  $body-1: mat.define-typography-level(16px, 28px, 400),
+  $caption: mat.define-typography-level(14px, 20px, 400),
+  $button: mat.define-typography-level(16px, 16px, 400),
+  $input: mat.define-typography-level(inherit, 1.125, 400),
+);
+
+@include mat.core($custom-typography);

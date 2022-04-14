@@ -1,0 +1,10 @@
+.list-element {
+  @apply p-4 flex items-center cursor-pointer;
+}
+
+.list-element__title {
+}
+
+.list-element__image {
+  @apply h-10 w-10 mx-4 bg-primary-500 rounded-lg;
+}

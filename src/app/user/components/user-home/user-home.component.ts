@@ -16,7 +16,7 @@ import { UserDTO } from '../../models/user.dto';
 })
 export class UserHomeComponent implements OnInit {
 
-  user:  UserDTO;
+  user: UserDTO;
 
   constructor(private store: Store<AppState>,
     private router: Router) {

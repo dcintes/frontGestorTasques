@@ -1,12 +1,12 @@
+/** Estils base i resets **/
 @tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "./styles/_angular-theme";
+@import "./styles/_base";
 
-html,
-body {
-  height: 100%;
-}
-body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-}
+/** Components **/
+@tailwind components;
+// Llistat d'elements
+@import "./styles/_list-element";
+
+/** Utilitats **/
+@tailwind utilities;

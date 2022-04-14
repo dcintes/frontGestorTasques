@@ -25,7 +25,26 @@ export class UserEffects {
         map((user) => {
           console.log(user);
           return userAction.getUserSuccess({ 
-            user: new UserDTO(user.id, user.name, user.email, user.created_at, user.updated_at)
+            user: user
+          })
+        }),
+        catchError((err) => {
+          console.error(err);
+          return of(userAction.error({payload: err}))
+        })
+      ))
+    )
+  );
+
+  getUserGroups$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(userAction.getGroups),
+      exhaustMap(( { user_id } ) =>
+      this.userService.getUserGroups(user_id).pipe(
+        map((groups) => {
+          console.log(groups);
+          return userAction.getGroupsSuccess({ 
+            groups: groups
           })
         }),
         catchError((err) => {

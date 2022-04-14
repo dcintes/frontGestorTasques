@@ -1,17 +1,20 @@
 import { Action, createReducer, on } from '@ngrx/store';
 import { UserDTO } from '../models/user.dto';
 import * as userActions from "../actions";
+import { GroupDTO } from 'src/app/group/models/group.dto';
 
 export interface UserState {
   user: UserDTO,
-	loading: boolean;
-  loaded: boolean;
-  error: any;
+  groups: GroupDTO[],
+	loading: boolean,
+  loaded: boolean,
+  error: any,
 }
 
 // Estat inicial
 export const initialState: UserState = {
   user: new UserDTO('','','',new Date(), new Date()),
+  groups: [],
 	loading: false,
   loaded: false,
   error: null
@@ -37,6 +40,18 @@ const _userReducer = createReducer(
     loading: false,
     loaded: false,
     error: payload
+  })),
+  on(userActions.getGroups, (state, {user_id}) => ({
+		...state,
+    loading: true,
+    loaded: false,
+    error: null,
+	})),
+  on(userActions.getGroupsSuccess, (state, {groups}) => ({
+    ...state,
+    groups: groups,
+    loading: false,
+    loaded: true,
   })),
 );
 
