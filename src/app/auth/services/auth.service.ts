@@ -4,13 +4,14 @@ import { AuthDTO } from '../models/auth.dto';
 import { HttpClient } from '@angular/common/http';
 import { ErrorService } from 'src/app/shared/services/error.service';
 import { RegisterDTO } from '../models/register.dto';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private baseUrl = 'http://localhost/api/';
+  private baseUrl = environment.apiUrl;
 
   constructor(
     private http: HttpClient,

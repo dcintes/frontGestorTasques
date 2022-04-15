@@ -1,5 +1,6 @@
 import { createAction, props } from '@ngrx/store';
 import { GroupDTO } from 'src/app/group/models/group.dto';
+import { InvitationDTO } from '../models/invitation.dto';
 import { UserDTO } from '../models/user.dto';
 
 export const getUser = createAction(
@@ -25,4 +26,34 @@ export const getGroups = createAction(
 export const getGroupsSuccess = createAction(
   '[User] get user groups success',
   props<{ groups: GroupDTO[] }>()
+);
+
+export const getInvitations = createAction(
+  '[User] get user invitations',
+  props<{ user_id: string }>()
+);
+
+export const getInvitationsSuccess = createAction(
+  '[User] get user invitations success',
+  props<{ invitations: InvitationDTO[] }>()
+);
+
+export const acceptInvitation = createAction(
+  '[User] accept invitation',
+  props<{ invitation_id: string }>()
+);
+
+export const acceptInvitationSuccess = createAction(
+  '[User] accept invitation success',
+  props<{ invitation_id: string }>()
+);
+
+export const deleteInvitation = createAction(
+  '[User] delete invitation',
+  props<{ invitation_id: string }>()
+);
+
+export const deleteInvitationSuccess = createAction(
+  '[User] delete invitatio success',
+  props<{ invitation_id: string }>()
 );

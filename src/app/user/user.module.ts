@@ -8,12 +8,17 @@ import { MatDividerModule } from '@angular/material/divider';
 import { UserGroupsComponent } from './components/user-groups/user-groups.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatRippleModule } from '@angular/material/core';
+import { MatDialogModule } from '@angular/material/dialog';
+import { UserInvitationsComponent } from './components/user-invitations/user-invitations.component';
+import { InvitationDialogComponent } from './components/invitation-dialog/invitation-dialog.component';
 
 
 @NgModule({
   declarations: [
     UserHomeComponent,
-    UserGroupsComponent
+    UserGroupsComponent,
+    UserInvitationsComponent,
+    InvitationDialogComponent
   ],
   imports: [
     CommonModule,
@@ -23,6 +28,7 @@ import { MatRippleModule } from '@angular/material/core';
     MatDividerModule,
     MatButtonModule,
     MatRippleModule,
+    MatDialogModule,
   ]
 })
 export class UserModule { }

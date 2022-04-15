@@ -1,0 +1,15 @@
+<div class="mt-4 flex flex-col">
+
+  <mat-divider></mat-divider>
+  <ng-container *ngFor="let invitation of invitations;">
+
+    <div matRipple class="list-element" (click)="openDialog(invitation.id)">
+      <span class="list-element__image"></span>
+      <span class="list-element__title">{{invitation.group_name}}</span>
+
+    </div>
+
+    <mat-divider></mat-divider>
+  </ng-container>
+
+</div>

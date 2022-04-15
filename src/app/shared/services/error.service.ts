@@ -14,7 +14,7 @@ export class ErrorService {
   }
 
   public handleHttpError(error: HttpErrorResponse) {
-    console.log('Error: ', error);
+    console.error('Error: ', error);
     let message = '';
     if(error.error) {
       message = this.processarErrors(error.error);
@@ -36,7 +36,14 @@ export class ErrorService {
   }
 
   private processarErrors(error: any): string{
-    let errors: string = error['error'];
-    return Object.values(JSON.parse(errors)).join(', ');
+    let message: string = '';
+    
+    if(error.error) {
+      message = Object.values(JSON.parse(error.error)).join(', ');
+    } else if (error.message) {
+      message = error.message;
+    }
+
+    return message;
   }
 }

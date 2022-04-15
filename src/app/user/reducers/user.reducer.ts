@@ -2,22 +2,27 @@ import { Action, createReducer, on } from '@ngrx/store';
 import { UserDTO } from '../models/user.dto';
 import * as userActions from "../actions";
 import { GroupDTO } from 'src/app/group/models/group.dto';
+import { InvitationDTO } from '../models/invitation.dto';
 
 export interface UserState {
   user: UserDTO,
   groups: GroupDTO[],
+  invitations: InvitationDTO[],
 	loading: boolean,
   loaded: boolean,
   error: any,
+  payload: any,
 }
 
 // Estat inicial
 export const initialState: UserState = {
   user: new UserDTO('','','',new Date(), new Date()),
   groups: [],
+  invitations: [],
 	loading: false,
   loaded: false,
-  error: null
+  error: null,
+  payload: null,
 };
 
 const _userReducer = createReducer(
@@ -28,6 +33,7 @@ const _userReducer = createReducer(
     loading: true,
     loaded: false,
     error: null,
+    payload: null,
 	})),
   on(userActions.getUserSuccess, (state, {user}) => ({
     ...state,
@@ -41,6 +47,7 @@ const _userReducer = createReducer(
     loaded: false,
     error: payload
   })),
+
   on(userActions.getGroups, (state, {user_id}) => ({
 		...state,
     loading: true,
@@ -52,6 +59,50 @@ const _userReducer = createReducer(
     groups: groups,
     loading: false,
     loaded: true,
+  })),
+
+  on(userActions.getInvitations, (state, {user_id}) => ({
+		...state,
+    loading: true,
+    loaded: false,
+    error: null,
+	})),
+  on(userActions.getInvitationsSuccess, (state, {invitations}) => ({
+    ...state,
+    invitations: invitations,
+    loading: false,
+    loaded: true,
+  })),
+
+  on(userActions.deleteInvitation, (state, {invitation_id}) => ({
+		...state,
+    loading: true,
+    loaded: false,
+    error: null,
+	})),
+  on(userActions.deleteInvitationSuccess, (state, {invitation_id}) => ({
+    ...state,
+    invitations: state.invitations.filter(invitation => invitation.id !== invitation_id),
+    loading: false,
+    loaded: true,
+  })),
+
+  on(userActions.acceptInvitation, (state, {invitation_id}) => ({
+		...state,
+    loading: true,
+    loaded: false,
+    error: null,
+    payload: null,
+	})),
+  on(userActions.acceptInvitationSuccess, (state, {invitation_id}) => ({
+    ...state,
+    invitations: state.invitations.filter(invitation => invitation.id !== invitation_id),
+    loading: false,
+    loaded: true,
+    payload: {
+      action: 'acceptInvitationSuccess',
+      invitation: state.invitations.find(invitation => invitation.id === invitation_id)
+    }
   })),
 );
 
