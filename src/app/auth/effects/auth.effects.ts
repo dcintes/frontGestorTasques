@@ -43,6 +43,7 @@ export class AuthEffects {
       ofType(authAction.logout),
       map(() => {
         this.localStorageService.remove('access_token');
+        this.localStorageService.remove('user_id');
       })
     ),
     { dispatch: false }

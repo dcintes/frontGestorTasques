@@ -1,0 +1,64 @@
+<mat-toolbar color="primary">
+
+  <button mat-icon-button aria-label="Tornar" routerLink="/">
+    <mat-icon inline="true">arrow_back</mat-icon>
+  </button>
+
+  <span class="flex-1"></span>
+  <span class="flex items-center px-2 rounded-xl border-primary-300	border-2">
+    {{authMember.balance}}
+    <mat-icon inline="true" class="gold">generating_tokens</mat-icon>
+  </span>
+  <span class="flex-1"></span>
+
+  <button mat-icon-button aria-label="Members del grup">
+    <mat-icon inline="true">group</mat-icon>
+  </button>
+  <button mat-icon-button aria-label="Configuració del grup" *ngIf="authMember.admin">
+    <mat-icon inline="true">settings</mat-icon>
+  </button>
+</mat-toolbar>
+
+<div class="title">
+  <div class="title__image"></div>
+  <h1 class="title__name">{{group.name}}</h1>
+</div>
+
+<mat-tab-group mat-stretch-tabs>
+
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon inline="true">home</mat-icon>
+    </ng-template>
+    <ng-template matTabContent>
+      asd
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon inline="true">assignment</mat-icon>
+    </ng-template>
+    <ng-template matTabContent>
+      asd
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon inline="true">emoji_events</mat-icon>
+    </ng-template>
+    <ng-template matTabContent>
+      asd
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon inline="true">analytics</mat-icon>
+    </ng-template>
+    <ng-template matTabContent>
+      asd
+    </ng-template>
+  </mat-tab>
+</mat-tab-group>

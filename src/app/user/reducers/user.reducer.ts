@@ -1,4 +1,4 @@
-import { Action, createReducer, on } from '@ngrx/store';
+import { createReducer, on } from '@ngrx/store';
 import { UserDTO } from '../models/user.dto';
 import * as userActions from "../actions";
 import { GroupDTO } from 'src/app/group/models/group.dto';

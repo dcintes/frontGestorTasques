@@ -5,10 +5,10 @@
   <span class="flex-1"></span>
 
   <button mat-icon-button aria-label="Editar l'usuari">
-    <mat-icon>person</mat-icon>
+    <mat-icon inline="true">person</mat-icon>
   </button>
   <button mat-icon-button aria-label="Tancar la sessió actual" (click)="logout()">
-    <mat-icon>logout</mat-icon>
+    <mat-icon inline="true">logout</mat-icon>
   </button>
 </mat-toolbar>
 
@@ -16,20 +16,14 @@
 
   <mat-tab>
     <ng-template mat-tab-label>
-      <div class="flex flex-col items-center m-2">
-        <mat-icon class="example-tab-icon">group_work</mat-icon>
-        Grups
-      </div>
+      <mat-icon inline="true">group_work</mat-icon>
     </ng-template>
     <app-user-groups></app-user-groups>
   </mat-tab>
 
   <mat-tab label="Second">
     <ng-template mat-tab-label>
-      <div class="flex flex-col items-center">
-        <mat-icon class="example-tab-icon">mail</mat-icon>
-        Invitacions
-      </div>
+      <mat-icon inline="true">mail</mat-icon>
     </ng-template>
     <ng-template matTabContent>
       <app-user-invitations></app-user-invitations>

@@ -11,6 +11,7 @@ import { MatRippleModule } from '@angular/material/core';
 import { MatDialogModule } from '@angular/material/dialog';
 import { UserInvitationsComponent } from './components/user-invitations/user-invitations.component';
 import { InvitationDialogComponent } from './components/invitation-dialog/invitation-dialog.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { InvitationDialogComponent } from './components/invitation-dialog/invita
   ],
   imports: [
     CommonModule,
+    RouterModule,
     MatToolbarModule,
     MatIconModule,
     MatTabsModule,
