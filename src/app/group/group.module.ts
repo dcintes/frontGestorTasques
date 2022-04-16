@@ -8,22 +8,34 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
+import { GroupComponent } from './components/group/group.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { ReactiveFormsModule } from '@angular/forms';
+import { GroupDeleteDialogComponent } from './components/group-delete-dialog/group-delete-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 
 @NgModule({
   declarations: [
-    GroupHomeComponent
+    GroupHomeComponent,
+    GroupComponent,
+    GroupDeleteDialogComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatFormFieldModule,
     MatToolbarModule,
     MatIconModule,
     MatTabsModule,
     MatDividerModule,
     MatButtonModule,
     MatRippleModule,
+    MatDialogModule,
   ]
 })
 export class GroupModule { }

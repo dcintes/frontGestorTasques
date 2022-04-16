@@ -24,4 +24,28 @@ export class GroupService {
         return this.errorService.handleHttpError(err)
       }));
   }
+
+  createGroup(group: GroupDTO): Observable<GroupDTO> {
+    return this.http
+      .post<GroupDTO>(this.baseUrl+'group', group)
+      .pipe(catchError(err => {
+        return this.errorService.handleHttpError(err)
+      }));
+  }
+
+  updateGroup(group: GroupDTO): Observable<GroupDTO> {
+    return this.http
+      .put<GroupDTO>(this.baseUrl+'group/'+group.id, group)
+      .pipe(catchError(err => {
+        return this.errorService.handleHttpError(err)
+      }));
+  }
+
+  deleteGroup(group_id: string): Observable<any> {
+    return this.http
+      .delete(this.baseUrl+'group/'+group_id)
+      .pipe(catchError(err => {
+        return this.errorService.handleHttpError(err)
+      }));
+  }
 }

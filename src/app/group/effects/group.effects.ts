@@ -52,4 +52,59 @@ export class GroupEffects {
       ))
     )
   );
+
+  createGroup$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(groupAction.createGroup),
+      exhaustMap(( { group } ) =>
+      this.groupService.createGroup(group).pipe(
+        map((group) => {
+          console.debug(group);
+          return groupAction.createGroupSuccess({ 
+            group: group
+          })
+        }),
+        catchError((err) => {
+          console.error(err);
+          return of(groupAction.error({payload: err}))
+        })
+      ))
+    )
+  );
+
+  updateGroup$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(groupAction.updateGroup),
+      exhaustMap(( { group } ) =>
+      this.groupService.updateGroup(group).pipe(
+        map((group) => {
+          console.debug(group);
+          return groupAction.updateGroupSuccess({ 
+            group: group
+          })
+        }),
+        catchError((err) => {
+          console.error(err);
+          return of(groupAction.error({payload: err}))
+        })
+      ))
+    )
+  );
+
+  deleteGroup$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(groupAction.deleteGroup),
+      exhaustMap(( { group_id } ) =>
+      this.groupService.deleteGroup(group_id).pipe(
+        map((group) => {
+          console.debug(group);
+          return groupAction.deleteGroupSuccess()
+        }),
+        catchError((err) => {
+          console.error(err);
+          return of(groupAction.error({payload: err}))
+        })
+      ))
+    )
+  );
 }

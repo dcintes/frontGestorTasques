@@ -29,7 +29,7 @@ export class UserComponent implements OnInit {
     private store: Store<AppState>,
     private formBuilder: FormBuilder,
     private _snackBar: MatSnackBar,
-    public dialog: MatDialog,
+    private dialog: MatDialog,
     private router: Router,
   ) {
       this.user = new UserDTO('','','',new Date(), new Date());

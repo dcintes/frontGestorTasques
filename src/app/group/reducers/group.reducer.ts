@@ -66,6 +66,57 @@ const _groupReducer = createReducer(
     ...state,
     authMember: authMember,
   })),
+
+  on(groupActions.createGroup, (state, {group}) => ({
+		...state,
+    loading: true,
+    loaded: false,
+    error: null,
+    payload: null,
+	})),
+  on(groupActions.createGroupSuccess, (state, {group}) => ({
+    ...state,
+    group: group,
+    loading: false,
+    loaded: true,
+    error: null,
+    payload: {
+      action: 'createGroupSuccess',
+      group_id: group.id,
+    }
+  })),
+
+  on(groupActions.updateGroup, (state, {group}) => ({
+		...state,
+    loading: true,
+    loaded: false,
+    error: null,
+    payload: null,
+	})),
+  on(groupActions.updateGroupSuccess, (state, {group}) => ({
+    ...state,
+    group: group,
+    loading: false,
+    loaded: true,
+    error: null,
+    payload: {
+      action: 'updateGroupSuccess',
+    }
+  })),
+
+  on(groupActions.deleteGroup, (state, {group_id}) => ({
+		...state,
+    loading: true,
+    loaded: false,
+    error: null,
+    payload: null,
+	})),
+  on(groupActions.deleteGroupSuccess, (state) => ({
+    ...initialState,
+    payload: {
+      action: 'deleteGroupSuccess',
+    }
+  })),
 );
 
 export function groupReducer(state: any, action: any) {

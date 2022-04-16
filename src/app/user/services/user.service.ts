@@ -51,9 +51,9 @@ export class UserService {
       }));
   }
 
-  deleteUser(user_id: string): Observable<UserDTO> {
+  deleteUser(user_id: string): Observable<any> {
     return this.http
-      .delete<UserDTO>(this.baseUrl+'user/'+user_id)
+      .delete(this.baseUrl+'user/'+user_id)
       .pipe(catchError(err => {
         return this.errorService.handleHttpError(err)
       }));

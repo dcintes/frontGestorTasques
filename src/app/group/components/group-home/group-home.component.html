@@ -14,7 +14,7 @@
   <button mat-icon-button aria-label="Members del grup">
     <mat-icon inline="true">group</mat-icon>
   </button>
-  <button mat-icon-button aria-label="Configuració del grup" *ngIf="authMember.admin">
+  <button mat-icon-button aria-label="Configuració del grup" *ngIf="authMember.admin" routerLink="edit">
     <mat-icon inline="true">settings</mat-icon>
   </button>
 </mat-toolbar>
