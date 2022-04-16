@@ -104,6 +104,35 @@ const _userReducer = createReducer(
       invitation: state.invitations.find(invitation => invitation.id === invitation_id)
     }
   })),
+  on(userActions.updateUser, (state, {user}) => ({
+		...state,
+    loading: true,
+    loaded: false,
+    error: null,
+    payload: null,
+	})),
+  on(userActions.updateUserSuccess, (state, {user}) => ({
+    ...state,
+    user: user,
+    loading: false,
+    loaded: true,
+    payload: {
+      action: 'updateUserSuccess',
+    }
+  })),
+  on(userActions.deleteUser, (state, {user_id}) => ({
+		...state,
+    loading: true,
+    loaded: false,
+    error: null,
+    payload: null,
+	})),
+  on(userActions.deleteUserSuccess, (state) => ({
+    ...initialState, 
+    payload: {
+      action: 'deleteUserSuccess',
+    }
+  })),
 );
 
 export function userReducer(state: any, action: any) {

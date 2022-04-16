@@ -1,0 +1,15 @@
+.mat-snack-bar-container {
+  @apply bg-primary-500 text-gray-800;
+}
+
+.mat-simple-snackbar-action {
+  @apply bg-white rounded-sm text-primary-500;
+}
+
+.mat-snack-bar-container.error-snackbar {
+  @apply bg-warn-500 text-white;
+
+  .mat-simple-snackbar-action {
+    @apply text-warn-500;
+  }
+}

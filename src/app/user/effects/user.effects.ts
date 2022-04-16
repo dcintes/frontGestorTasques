@@ -113,4 +113,41 @@ export class UserEffects {
       ))
     )
   );
+
+  updateUser$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(userAction.updateUser),
+      exhaustMap(( { user } ) =>
+      this.userService.updateUser(user).pipe(
+        map((user) => {
+          console.debug(user);
+          return userAction.updateUserSuccess({ 
+            user: user
+          })
+        }),
+        catchError((err) => {
+          console.error(err);
+          return of(userAction.error({payload: err}))
+        })
+      ))
+    )
+  );
+
+  deleteUser$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(userAction.deleteUser),
+      exhaustMap(( { user_id } ) =>
+      this.userService.deleteUser(user_id).pipe(
+        map(() => {
+          console.debug('user deleted');
+
+          return userAction.deleteUserSuccess()
+        }),
+        catchError((err) => {
+          console.error(err);
+          return of(userAction.error({payload: err}))
+        })
+      ))
+    )
+  );
 }

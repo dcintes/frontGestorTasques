@@ -12,6 +12,11 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { UserInvitationsComponent } from './components/user-invitations/user-invitations.component';
 import { InvitationDialogComponent } from './components/invitation-dialog/invitation-dialog.component';
 import { RouterModule } from '@angular/router';
+import { UserComponent } from './components/user/user.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { ReactiveFormsModule } from '@angular/forms';
+import { UserDeleteDialogComponent } from './components/user-delete-dialog/user-delete-dialog.component';
 
 
 @NgModule({
@@ -19,11 +24,16 @@ import { RouterModule } from '@angular/router';
     UserHomeComponent,
     UserGroupsComponent,
     UserInvitationsComponent,
-    InvitationDialogComponent
+    InvitationDialogComponent,
+    UserComponent,
+    UserDeleteDialogComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatFormFieldModule,
     MatToolbarModule,
     MatIconModule,
     MatTabsModule,

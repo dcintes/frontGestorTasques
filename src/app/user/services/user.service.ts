@@ -42,4 +42,20 @@ export class UserService {
         return this.errorService.handleHttpError(err)
       }));
   }
+
+  updateUser(user: UserDTO): Observable<UserDTO> {
+    return this.http
+      .put<UserDTO>(this.baseUrl+'user/'+user.id, user)
+      .pipe(catchError(err => {
+        return this.errorService.handleHttpError(err)
+      }));
+  }
+
+  deleteUser(user_id: string): Observable<UserDTO> {
+    return this.http
+      .delete<UserDTO>(this.baseUrl+'user/'+user_id)
+      .pipe(catchError(err => {
+        return this.errorService.handleHttpError(err)
+      }));
+  }
 }

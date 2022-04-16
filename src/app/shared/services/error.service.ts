@@ -42,6 +42,8 @@ export class ErrorService {
       message = Object.values(JSON.parse(error.error)).join(', ');
     } else if (error.message) {
       message = error.message;
+    } else if (error.error_message) {
+      message = error.error_message;
     }
 
     return message;

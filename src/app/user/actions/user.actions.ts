@@ -57,3 +57,22 @@ export const deleteInvitationSuccess = createAction(
   '[User] delete invitatio success',
   props<{ invitation_id: string }>()
 );
+
+export const updateUser = createAction(
+  '[User] update user',
+  props<{ user: UserDTO }>()
+);
+
+export const updateUserSuccess = createAction(
+  '[User] update user success',
+  props<{ user: UserDTO }>()
+);
+
+export const deleteUser = createAction(
+  '[User] delete user',
+  props<{ user_id: string }>()
+);
+
+export const deleteUserSuccess = createAction(
+  '[User] delete user success',
+);

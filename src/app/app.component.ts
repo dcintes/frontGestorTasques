@@ -22,7 +22,7 @@ export class AppComponent  implements OnInit{
     private store: Store<AppState>,
   ) {
     this.errorService.errors().subscribe(error => {
-      this._snackBar.open(error, 'tancar');
+      this._snackBar.open(error, 'tancar', {panelClass: ['error-snackbar']});
     });
 
   }

@@ -5,11 +5,13 @@ import { RegisterComponent } from './auth/components/register/register.component
 import { GroupComponent } from './group/components/group/group.component';
 import { AuthGuard } from './shared/guards/auth.guard';
 import { UserHomeComponent } from './user/components/user-home/user-home.component';
+import { UserComponent } from './user/components/user/user.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: '', component: UserHomeComponent, canActivate: [AuthGuard] },
+  { path: 'user', component: UserComponent, canActivate: [AuthGuard] },
   { path: 'group/:group_id', component: GroupComponent, canActivate: [AuthGuard] },
 ];
 
