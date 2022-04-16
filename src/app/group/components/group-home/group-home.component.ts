@@ -8,10 +8,10 @@ import { MemberDTO } from 'src/app/member/models/member.dto';
 
 @Component({
   selector: 'app-group',
-  templateUrl: './group.component.html',
-  styleUrls: ['./group.component.scss']
+  templateUrl: './group-home.component.html',
+  styleUrls: ['./group-home.component.scss']
 })
-export class GroupComponent implements OnInit {
+export class GroupHomeComponent implements OnInit {
 
   group_id: string | null;
   group: GroupDTO;
