@@ -1,0 +1,90 @@
+<div class="p-10 flex flex-col gap-4">
+  <div class="flex">
+    <a mat-icon-button aria-label="Tornar" (click)="back()">
+      <mat-icon>arrow_back</mat-icon>
+    </a>
+    <span class="flex-1"></span>
+    <a mat-icon-button aria-label="Editar" (click)="edit()" *ngIf="action === 'view' && isAdmin && !completed">
+      <mat-icon>edit</mat-icon>
+    </a>
+  </div>
+
+  <ng-template [ngIf]="action === 'create' || action === 'edit'">
+
+    <h1>{{action === 'create' ? 'Nova' : task.name}} tasca</h1>
+
+    <form class="flex flex-col" [formGroup]="taskForm" (ngSubmit)="saveTask()">
+
+      <mat-form-field appearance="fill">
+        <mat-label>Nom</mat-label>
+        <input type="text" matInput [formControl]="name">
+        <mat-error *ngIf="name.hasError('required')">
+          El nom és <strong>obligatori</strong>
+        </mat-error>
+        <mat-error *ngIf="name.hasError('maxlength')">
+          El nom ha de tenir menys de 50 caràcters
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Descripció</mat-label>
+        <textarea type="text" matInput [formControl]="description" rows="4"></textarea>
+        <mat-error *ngIf="description.hasError('required')">
+          La descripció és <strong>obligatoria</strong>
+        </mat-error>
+        <mat-error *ngIf="description.hasError('maxlength')">
+          La descripció ha de tenir menys de 255 caràcters
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Valor</mat-label>
+        <input type="number" matInput [formControl]="value">
+        <mat-error *ngIf="value.hasError('required')">
+          El valor és <strong>obligatori</strong>
+        </mat-error>
+        <mat-error *ngIf="value.hasError('pattern')">
+          El valor ha de tenir un format numèric
+        </mat-error>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit" [disabled]="!taskForm.valid">
+        {{action === 'create' ? 'Crear' : 'Guardar'}}
+      </button>
+    </form>
+    <button mat-raised-button *ngIf="action === 'edit' && isAdmin" color="warn" type="button"
+      (click)="deleteTaskDialog()">
+      Eliminar
+    </button>
+  </ng-template>
+
+  <ng-template [ngIf]="action === 'view'">
+    <div class="flex flex-col items-center gap-4">
+      <h1>{{task.name}}</h1>
+      <mat-chip-list>
+        <mat-chip *ngIf="assigned">
+          <mat-chip-avatar class="bg-primary-500">
+          </mat-chip-avatar>
+          {{assigned.name}}
+        </mat-chip>
+        <mat-chip *ngIf="completed" color="accent" selected>
+          {{task.completed_date}}
+        </mat-chip>
+      </mat-chip-list>
+      <p>{{task.description}}</p>
+      <p class="text-5xl">
+        {{task.value}}
+        <mat-icon inline="true" class="gold">generating_tokens</mat-icon>
+      </p>
+    </div>
+
+    <div class="flex justify-around	">
+      <button mat-raised-button type="button" (click)="assignTaskDialog()">
+        Assignar
+      </button>
+      <button mat-raised-button *ngIf="isMyTask && !completed" color="primary" type="button" (click)="completar()">
+        Completar
+      </button>
+    </div>
+  </ng-template>
+</div>

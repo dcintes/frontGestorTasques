@@ -16,8 +16,8 @@ import { UserModule } from './user/user.module';
 import { environment } from 'src/environments/environment';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AuthInterceptorService } from './shared/services/auth-interceptor.service';
-import { RegisterComponent } from './auth/components/register/register.component';
 import { GroupModule } from './group/group.module';
+import { TaskModule } from './task/task.module';
 
 @NgModule({
   declarations: [
@@ -32,6 +32,7 @@ import { GroupModule } from './group/group.module';
     AuthModule,
     UserModule,
     GroupModule,
+    TaskModule,
     BrowserAnimationsModule,
     MatSnackBarModule,
     StoreDevtoolsModule.instrument({

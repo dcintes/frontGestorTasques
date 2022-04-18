@@ -10,6 +10,10 @@ h1 {
   @apply border-primary-500 border-b-4 pb-2;
 }
 
+h2 {
+  @apply border-accent-500 border-b-4 pb-2 pt-6 text-center;
+}
+
 mat-icon.mat-icon.mat-icon-inline {
   @apply text-3xl;
 }

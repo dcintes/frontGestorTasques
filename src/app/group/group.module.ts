@@ -14,8 +14,7 @@ import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { GroupDeleteDialogComponent } from './components/group-delete-dialog/group-delete-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
-
-
+import { TaskModule } from '../task/task.module';
 
 @NgModule({
   declarations: [
@@ -36,6 +35,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatButtonModule,
     MatRippleModule,
     MatDialogModule,
+    TaskModule,
   ]
 })
 export class GroupModule { }
