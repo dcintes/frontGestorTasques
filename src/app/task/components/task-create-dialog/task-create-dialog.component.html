@@ -1,0 +1,18 @@
+<div mat-dialog-content>
+  <p>Crear una nova tasca</p>
+
+  <form class="flex flex-col">
+    <mat-form-field appearance="fill">
+      <mat-label>Plantilla</mat-label>
+      <mat-select [formControl]="template">
+        <mat-option *ngFor="let template of templates" [value]="template.id">
+          {{template.name}} - {{template.value}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions class="flex justify-center">
+  <button mat-button color="primary" (click)="createFromTemplate()">Crear</button>
+  <button mat-button [mat-dialog-close] routerLink="/group/{{group_id}}/task/create">Nova tasca</button>
+</div>

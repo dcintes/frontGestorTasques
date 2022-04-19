@@ -2,14 +2,14 @@ import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import * as templateTaskAction from "../actions";
 import { catchError, exhaustMap, map, of } from "rxjs";
-import { TemplateTemplateTaskService } from "../services/template-task.service";
+import { TemplateTaskService } from "../services/template-task.service";
 
 @Injectable()
 export class TemplateTaskEffects {
 
   constructor(
 		private actions$: Actions,
-		private templateTaskService: TemplateTemplateTaskService,
+		private templateTaskService: TemplateTaskService,
 	) {}
 
   getTemplateTask$ = createEffect(() =>

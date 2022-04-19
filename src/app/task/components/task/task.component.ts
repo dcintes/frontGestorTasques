@@ -141,7 +141,7 @@ export class TaskComponent implements OnInit {
     this.location.back();
   }
 
-  saveTask(): void {
+  save(): void {
 
     if(this.taskForm.invalid){
       return
@@ -157,7 +157,7 @@ export class TaskComponent implements OnInit {
 
   }
 
-  deleteTaskDialog(): void {
+  deleteDialog(): void {
     const dialogRef = this.dialog.open(TaskDeleteDialogComponent);
 
     dialogRef.afterClosed().subscribe(result => {
@@ -167,7 +167,7 @@ export class TaskComponent implements OnInit {
     });
   }
 
-  assignTaskDialog(): void {
+  assignDialog(): void {
     const dialogRef = this.dialog.open(TaskAssignDialogComponent, {
       data: { assigned_id: this.task.assigned_id }
     });
@@ -184,7 +184,7 @@ export class TaskComponent implements OnInit {
     this.router.navigate(['/group/'+this.group_id+'/task/'+this.task_id+'/edit']);
   }
 
-  completar(): void {
+  complete(): void {
     if(this.task_id){
       this.store.dispatch(TaskActions.completeTask({ group_id: this.group_id, task_id: this.task_id }));
     }

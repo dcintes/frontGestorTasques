@@ -9,7 +9,7 @@ import { TemplateTaskDTO } from '../models/template-task.dto';
 @Injectable({
   providedIn: 'root'
 })
-export class TemplateTemplateTaskService {
+export class TemplateTaskService {
 
   private baseUrl = environment.apiUrl;
 

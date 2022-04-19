@@ -13,7 +13,7 @@
 
     <h1>{{action === 'create' ? 'Nova' : task.name}} tasca</h1>
 
-    <form class="flex flex-col" [formGroup]="taskForm" (ngSubmit)="saveTask()">
+    <form class="flex flex-col" [formGroup]="taskForm" (ngSubmit)="save()">
 
       <mat-form-field appearance="fill">
         <mat-label>Nom</mat-label>
@@ -52,8 +52,7 @@
         {{action === 'create' ? 'Crear' : 'Guardar'}}
       </button>
     </form>
-    <button mat-raised-button *ngIf="action === 'edit' && isAdmin" color="warn" type="button"
-      (click)="deleteTaskDialog()">
+    <button mat-raised-button *ngIf="action === 'edit' && isAdmin" color="warn" type="button" (click)="deleteDialog()">
       Eliminar
     </button>
   </ng-template>
@@ -78,11 +77,11 @@
       </p>
     </div>
 
-    <div class="flex justify-around	">
-      <button mat-raised-button type="button" (click)="assignTaskDialog()">
+    <div class="flex justify-around" *ngIf="!completed">
+      <button mat-raised-button type="button" (click)="assignDialog()">
         Assignar
       </button>
-      <button mat-raised-button *ngIf="isMyTask && !completed" color="primary" type="button" (click)="completar()">
+      <button mat-raised-button *ngIf="isMyTask" color="primary" type="button" (click)="complete()">
         Completar
       </button>
     </div>

@@ -5,7 +5,7 @@
       *ngIf="authMember && authMember.admin">
       <mat-icon>list_alt</mat-icon>
     </button>
-    <button mat-fab color="accent" routerLink="/group/{{group_id}}/task/create">
+    <button mat-fab color="accent" (click)="createDialog()">
       <mat-icon>add</mat-icon>
     </button>
   </div>

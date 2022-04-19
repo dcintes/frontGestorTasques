@@ -16,6 +16,7 @@ import { TaskAssignDialogComponent } from './components/task-assign-dialog/task-
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 import { MatChipsModule } from '@angular/material/chips';
+import { TaskCreateDialogComponent } from './components/task-create-dialog/task-create-dialog.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { MatChipsModule } from '@angular/material/chips';
     TaskComponent,
     TaskCardComponent,
     TaskDeleteDialogComponent,
-    TaskAssignDialogComponent
+    TaskAssignDialogComponent,
+    TaskCreateDialogComponent
   ],
   imports: [
     CommonModule,

@@ -5,6 +5,8 @@ import { AppState } from 'src/app/app.reducer';
 import { TaskDTO } from '../../models/task.dto';
 import * as TaskActions from '../../actions';
 import { MemberDTO } from 'src/app/member/models/member.dto';
+import { MatDialog } from '@angular/material/dialog';
+import { TaskCreateDialogComponent } from '../task-create-dialog/task-create-dialog.component';
 
 @Component({
   selector: 'app-task-list',
@@ -24,6 +26,7 @@ export class TaskListComponent implements OnInit {
   constructor(
     private store: Store<AppState>,
     private activatedRoute: ActivatedRoute,
+    private dialog: MatDialog,
   ) {
     this.group_id = this.activatedRoute.snapshot.paramMap.get('group_id');
 
@@ -60,6 +63,12 @@ export class TaskListComponent implements OnInit {
       this.myTasks = [];
       this.incompleted = [];
     }
+  }
+
+  createDialog(): void {
+    this.dialog.open(TaskCreateDialogComponent, { 
+      data: {group_id: this.group_id},
+    });
   }
 
 }
