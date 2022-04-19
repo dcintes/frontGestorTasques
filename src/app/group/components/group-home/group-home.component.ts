@@ -41,9 +41,9 @@ export class GroupHomeComponent implements OnInit {
       this.setAuthMember();
     });
 
-    this.store.select('auth').subscribe((auth) => {
-      if (auth.auth.user_id) {
-        this.user_id = auth.auth.user_id;
+    this.store.select(state => state.auth.auth.user_id).subscribe((user_id) => {
+      if (user_id) {
+        this.user_id = user_id;
         this.setAuthMember();
       }
     });
@@ -64,7 +64,7 @@ export class GroupHomeComponent implements OnInit {
   }
 
   setAuthMember(){
-    if(this.members.length != 0 && this.user_id != ''){
+    if(this.members.length > 0 && this.user_id != ''){
       this.authMember = this.members.find(member => member.user_id == this.user_id)!;
       this.store.dispatch(GroupAction.pushAuthMember({authMember: this.authMember}));
     }

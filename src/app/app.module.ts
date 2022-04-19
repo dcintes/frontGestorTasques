@@ -18,6 +18,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AuthInterceptorService } from './shared/services/auth-interceptor.service';
 import { GroupModule } from './group/group.module';
 import { TaskModule } from './task/task.module';
+import { TemplateTaskModule } from './template-task/template-task.module';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { TaskModule } from './task/task.module';
     UserModule,
     GroupModule,
     TaskModule,
+    TemplateTaskModule,
     BrowserAnimationsModule,
     MatSnackBarModule,
     StoreDevtoolsModule.instrument({

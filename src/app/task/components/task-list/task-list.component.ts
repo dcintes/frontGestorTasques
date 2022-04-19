@@ -56,6 +56,9 @@ export class TaskListComponent implements OnInit {
       this.myTasks = this.tasks.filter(task => task.assigned_id === this.authMember.id);
 
       this.incompleted = this.tasks.filter(task => task.assigned_id != this.authMember.id);
+    } else {
+      this.myTasks = [];
+      this.incompleted = [];
     }
   }
 
