@@ -17,9 +17,9 @@
     <mat-divider></mat-divider>
   </ng-container>
 
-  <h2>Incompletes</h2>
+  <h2>Pendents</h2>
   <mat-divider></mat-divider>
-  <ng-container *ngFor="let task of incompleted">
+  <ng-container *ngFor="let task of todo">
     <app-task-card [task]="task"></app-task-card>
     <mat-divider></mat-divider>
   </ng-container>

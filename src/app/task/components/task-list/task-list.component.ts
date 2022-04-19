@@ -19,7 +19,7 @@ export class TaskListComponent implements OnInit {
 
   tasks: TaskDTO[];
   myTasks: TaskDTO[];
-  incompleted: TaskDTO[];
+  todo: TaskDTO[];
   
   authMember!: MemberDTO;
 
@@ -32,7 +32,7 @@ export class TaskListComponent implements OnInit {
 
     this.tasks = [];
     this.myTasks = [];
-    this.incompleted = [];
+    this.todo = [];
 
     this.store.select(state => state.group.authMember).subscribe(authMember => {
       this.authMember = authMember;
@@ -58,10 +58,10 @@ export class TaskListComponent implements OnInit {
     if(this.tasks.length > 0 && this.authMember) {
       this.myTasks = this.tasks.filter(task => task.assigned_id === this.authMember.id);
 
-      this.incompleted = this.tasks.filter(task => task.assigned_id != this.authMember.id);
+      this.todo = this.tasks.filter(task => task.assigned_id != this.authMember.id);
     } else {
       this.myTasks = [];
-      this.incompleted = [];
+      this.todo = [];
     }
   }
 
