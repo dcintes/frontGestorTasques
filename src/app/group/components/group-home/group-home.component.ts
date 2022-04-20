@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/app.reducer';
-import { GroupDTO } from '../../models/group.dto';
-import * as GroupAction from '../../actions';
 import { MemberDTO } from 'src/app/member/models/member.dto';
+import * as GroupAction from '../../actions';
+import { GroupDTO } from '../../models/group.dto';
 
 @Component({
   selector: 'app-group',
@@ -19,6 +19,8 @@ export class GroupHomeComponent implements OnInit {
   authMember: MemberDTO;
   user_id: string;
 
+  selectedTab: number;
+
   constructor(
     private store: Store<AppState>,
     private activatedRoute: ActivatedRoute,
@@ -31,6 +33,8 @@ export class GroupHomeComponent implements OnInit {
     this.authMember = new MemberDTO('','','',false,0,new Date(), new Date());
 
     this.user_id = '';
+
+    this.selectedTab = 0;
 
     this.store.select(state => state.group.group).subscribe(group => {
       this.group = group;
@@ -51,6 +55,10 @@ export class GroupHomeComponent implements OnInit {
     this.store.select(state => state.group.group).subscribe(group => {
       this.group = group;
     });
+
+    this.store.select(state => state.group.selectedTab).subscribe(selectedTab => {
+      this.selectedTab = selectedTab;
+    });
   }
 
   ngOnInit(): void {
@@ -68,6 +76,11 @@ export class GroupHomeComponent implements OnInit {
       this.authMember = this.members.find(member => member.user_id == this.user_id)!;
       this.store.dispatch(GroupAction.pushAuthMember({authMember: this.authMember}));
     }
+  }
+
+  tabChange(event: number): void {
+    this.selectedTab = event;
+    this.store.dispatch(GroupAction.pushSelectedTab({selectedTab: this.selectedTab}));
   }
 
 }

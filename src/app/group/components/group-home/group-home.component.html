@@ -24,7 +24,7 @@
   <h1 class="title__name">{{group.name}}</h1>
 </div>
 
-<mat-tab-group mat-stretch-tabs>
+<mat-tab-group mat-stretch-tabs [selectedIndex]="selectedTab" (selectedIndexChange)="tabChange($event)">
 
   <mat-tab>
     <ng-template mat-tab-label>

@@ -1,7 +1,7 @@
 import { createReducer, on } from '@ngrx/store';
-import * as groupActions from "../actions";
 import { GroupDTO } from 'src/app/group/models/group.dto';
 import { MemberDTO } from 'src/app/member/models/member.dto';
+import * as groupActions from "../actions";
 
 export interface GroupState {
   group: GroupDTO,
@@ -11,6 +11,7 @@ export interface GroupState {
   loaded: boolean,
   error: any,
   payload: any,
+  selectedTab: number;
 }
 
 // Estat inicial
@@ -22,6 +23,7 @@ export const initialState: GroupState = {
   loaded: false,
   error: null,
   payload: null,
+  selectedTab: 0,
 };
 
 const _groupReducer = createReducer(
@@ -117,6 +119,12 @@ const _groupReducer = createReducer(
       action: 'deleteGroupSuccess',
     }
   })),
+
+  on(groupActions.pushSelectedTab, (state, {selectedTab}) => ({
+    ...state,
+    selectedTab: selectedTab,
+  })),
+
 );
 
 export function groupReducer(state: any, action: any) {

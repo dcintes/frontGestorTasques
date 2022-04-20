@@ -60,3 +60,8 @@ export const deleteGroup = createAction(
 export const deleteGroupSuccess = createAction(
   '[Group] delete group success'
 );
+
+export const pushSelectedTab = createAction(
+  '[Group] set selected tab',
+  props<{ selectedTab: number }>()
+);
