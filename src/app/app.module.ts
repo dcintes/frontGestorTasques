@@ -19,6 +19,7 @@ import { AuthInterceptorService } from './shared/services/auth-interceptor.servi
 import { GroupModule } from './group/group.module';
 import { TaskModule } from './task/task.module';
 import { TemplateTaskModule } from './template-task/template-task.module';
+import { TemplateRewardModule } from './template-reward/template-reward.module';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { TemplateTaskModule } from './template-task/template-task.module';
     GroupModule,
     TaskModule,
     TemplateTaskModule,
+    TemplateRewardModule,
     BrowserAnimationsModule,
     MatSnackBarModule,
     StoreDevtoolsModule.instrument({

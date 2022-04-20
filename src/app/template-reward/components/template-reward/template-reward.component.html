@@ -1,0 +1,98 @@
+<div class="p-10 flex flex-col gap-4">
+  <div class="flex">
+    <a mat-icon-button aria-label="Tornar" (click)="back()">
+      <mat-icon>arrow_back</mat-icon>
+    </a>
+    <span class="flex-1"></span>
+    <a mat-icon-button aria-label="Editar" (click)="edit()" *ngIf="action === 'view'">
+      <mat-icon>edit</mat-icon>
+    </a>
+  </div>
+
+  <ng-template [ngIf]="action === 'create' || action === 'edit'">
+
+    <h1>{{action === 'create' ? 'Nova plantilla de recompensa' : 'Edició plantilla: ' + template.name}}</h1>
+
+    <form class="flex flex-col" [formGroup]="templateRewardForm" (ngSubmit)="save()">
+
+      <mat-form-field appearance="fill">
+        <mat-label>Nom</mat-label>
+        <input type="text" matInput [formControl]="name">
+        <mat-error *ngIf="name.hasError('required')">
+          El nom és <strong>obligatori</strong>
+        </mat-error>
+        <mat-error *ngIf="name.hasError('maxlength')">
+          El nom ha de tenir menys de 50 caràcters
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Descripció</mat-label>
+        <textarea type="text" matInput [formControl]="description" rows="4"></textarea>
+        <mat-error *ngIf="description.hasError('required')">
+          La descripció és <strong>obligatoria</strong>
+        </mat-error>
+        <mat-error *ngIf="description.hasError('maxlength')">
+          La descripció ha de tenir menys de 255 caràcters
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Cost</mat-label>
+        <input type="number" matInput [formControl]="cost">
+        <mat-error *ngIf="cost.hasError('required')">
+          El valor és <strong>obligatori</strong>
+        </mat-error>
+        <mat-error *ngIf="cost.hasError('pattern')">
+          El valor ha de tenir un format numèric
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Color</mat-label>
+        <input type="color" matInput [formControl]="color">
+        <mat-error *ngIf="color.hasError('required')">
+          El color és <strong>obligatori</strong>
+        </mat-error>
+        <mat-error *ngIf="color.hasError('maxlength')">
+          El color ha de tenir menys de 7 caràcters
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Icona</mat-label>
+        <input type="text" matInput [formControl]="icon">
+        <mat-error *ngIf="icon.hasError('required')">
+          La icona és <strong>obligatoria</strong>
+        </mat-error>
+        <mat-error *ngIf="icon.hasError('maxlength')">
+          La icona ha de tenir menys de 10 caràcters
+        </mat-error>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit" [disabled]="!templateRewardForm.valid">
+        {{action === 'create' ? 'Crear' : 'Guardar'}}
+      </button>
+    </form>
+    <button mat-raised-button *ngIf="action === 'edit'" color="warn" type="button" (click)="deleteDialog()">
+      Eliminar
+    </button>
+  </ng-template>
+
+  <ng-template [ngIf]="action === 'view'">
+    <div class="flex flex-col items-center gap-4">
+      <h1>{{template.name}}</h1>
+      <p>{{template.description}}</p>
+      <p class="text-5xl">
+        {{template.cost}}
+        <mat-icon inline="true" class="gold">generating_tokens</mat-icon>
+      </p>
+    </div>
+
+    <div class="flex justify-around">
+      <button mat-raised-button color="primary" type="button" (click)="claim()">
+        Reclamar
+      </button>
+    </div>
+  </ng-template>
+</div>

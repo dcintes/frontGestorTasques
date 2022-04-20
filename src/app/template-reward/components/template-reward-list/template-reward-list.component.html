@@ -1,0 +1,16 @@
+<div class="flex flex-col">
+
+  <div class="flex justify-end m-4 gap-4">
+    <button mat-fab color="accent" routerLink="/group/{{group_id}}/template/reward/create"
+      *ngIf="authMember && authMember.admin">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+
+  <div class="grid grid-cols-3 gap-4 p-4">
+    <ng-container *ngFor="let template of templates">
+      <app-template-reward-card [template]="template"></app-template-reward-card>
+    </ng-container>
+  </div>
+
+</div>

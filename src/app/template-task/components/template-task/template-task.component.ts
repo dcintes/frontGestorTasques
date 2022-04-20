@@ -4,9 +4,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/app.reducer';
+import * as TemplateTaskActions from '../../actions';
 import { TemplateTaskDTO } from '../../models/template-task.dto';
-import { Location } from '@angular/common';
-import * as  TemplateTaskActions from '../../actions';
 import { TemplateTaskDeleteDialogComponent } from '../template-task-delete-dialog/template-task-delete-dialog.component';
 
 @Component({
@@ -33,7 +32,6 @@ export class TemplateTaskComponent implements OnInit {
     private router: Router,
     private formBuilder: FormBuilder,
     private dialog: MatDialog,
-    private location: Location,
   ) {
 
     const group_id = this.activatedRoute.snapshot.paramMap.get('group_id');

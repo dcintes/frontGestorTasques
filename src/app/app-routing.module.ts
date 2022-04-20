@@ -6,6 +6,7 @@ import { GroupHomeComponent } from './group/components/group-home/group-home.com
 import { GroupComponent } from './group/components/group/group.component';
 import { AuthGuard } from './shared/guards/auth.guard';
 import { TaskComponent } from './task/components/task/task.component';
+import { TemplateRewardComponent } from './template-reward/components/template-reward/template-reward.component';
 import { TemplateTaskListComponent } from './template-task/components/template-task-list/template-task-list.component';
 import { TemplateTaskComponent } from './template-task/components/template-task/template-task.component';
 import { UserHomeComponent } from './user/components/user-home/user-home.component';
@@ -27,6 +28,10 @@ const routes: Routes = [
   { path: 'group/:group_id/template/tasks', component: TemplateTaskListComponent, canActivate: [AuthGuard] },
   { path: 'group/:group_id/template/task/create', component: TemplateTaskComponent, canActivate: [AuthGuard] },
   { path: 'group/:group_id/template/task/:templateTask_id/:action', component: TemplateTaskComponent, canActivate: [AuthGuard] },
+
+  { path: 'group/:group_id/template/reward/create', component: TemplateRewardComponent, canActivate: [AuthGuard] },
+  { path: 'group/:group_id/template/reward/:templateReward_id/:action', component: TemplateRewardComponent, canActivate: [AuthGuard] },
+
 
 ];
 

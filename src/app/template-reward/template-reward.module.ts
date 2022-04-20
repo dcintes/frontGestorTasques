@@ -8,20 +8,20 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-import { MatTabsModule } from '@angular/material/tabs';
-import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
-import { TaskModule } from '../task/task.module';
-import { TemplateRewardModule } from '../template-reward/template-reward.module';
-import { GroupDeleteDialogComponent } from './components/group-delete-dialog/group-delete-dialog.component';
-import { GroupHomeComponent } from './components/group-home/group-home.component';
-import { GroupComponent } from './components/group/group.component';
+import { TemplateRewardCardComponent } from './components/template-reward-card/template-reward-card.component';
+import { TemplateRewardDeleteDialogComponent } from './components/template-reward-delete-dialog/template-reward-delete-dialog.component';
+import { TemplateRewardListComponent } from './components/template-reward-list/template-reward-list.component';
+import { TemplateRewardComponent } from './components/template-reward/template-reward.component';
+
+
 
 @NgModule({
   declarations: [
-    GroupHomeComponent,
-    GroupComponent,
-    GroupDeleteDialogComponent
+    TemplateRewardComponent,
+    TemplateRewardListComponent,
+    TemplateRewardCardComponent,
+    TemplateRewardDeleteDialogComponent
   ],
   imports: [
     CommonModule,
@@ -29,15 +29,14 @@ import { GroupComponent } from './components/group/group.component';
     ReactiveFormsModule,
     MatInputModule,
     MatFormFieldModule,
-    MatToolbarModule,
     MatIconModule,
-    MatTabsModule,
     MatDividerModule,
     MatButtonModule,
     MatRippleModule,
     MatDialogModule,
-    TaskModule,
-    TemplateRewardModule,
-  ]
+  ],
+  exports: [
+    TemplateRewardListComponent,
+  ],
 })
-export class GroupModule { }
+export class TemplateRewardModule { }

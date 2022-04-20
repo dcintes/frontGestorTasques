@@ -2,6 +2,10 @@
   @apply py-4 px-8 flex items-center cursor-pointer gap-4;
 }
 
+.list-element--vertical {
+  @apply flex-col;
+}
+
 .list-element__title {
 }
 
