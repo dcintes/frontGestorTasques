@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/app.reducer';
+import { Forms } from 'src/app/reward/models/forms';
 import * as TemplateRewardActions from '../../actions';
 import { TemplateRewardDTO } from '../../models/template-reward.dto';
 import { TemplateRewardDeleteDialogComponent } from '../template-reward-delete-dialog/template-reward-delete-dialog.component';
@@ -28,6 +29,8 @@ export class TemplateRewardComponent implements OnInit {
   color!: FormControl;
   templateRewardForm!: FormGroup;
 
+  forms: string[];
+
   constructor(
     private store: Store<AppState>,
     private activatedRoute: ActivatedRoute,
@@ -40,6 +43,8 @@ export class TemplateRewardComponent implements OnInit {
     this.action = this.activatedRoute.snapshot.paramMap.get('action');
 
     this.template = new TemplateRewardDTO('','','','',0,'','');
+
+    this.forms = new Forms().getForms();
 
     if(group_id) {
       this.group_id = group_id;

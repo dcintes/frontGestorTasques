@@ -33,7 +33,8 @@ export class TemplateRewardListComponent implements OnInit {
     });
 
     this.store.select(state => state.templateReward.templateRewards).subscribe(templates => {
-      this.templates = templates;
+      var temp = [...templates];
+      this.templates = temp.sort((a, b) => a.cost - b.cost);
     });
   }
 

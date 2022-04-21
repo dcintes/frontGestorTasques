@@ -1,12 +1,20 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { MatIconModule } from '@angular/material/icon';
+import { RewardIconComponent } from './components/reward-icon/reward-icon.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    RewardIconComponent
+  ],
   imports: [
-    CommonModule
+    CommonModule,
+    MatIconModule,
+  ],
+  exports: [
+    RewardIconComponent
   ]
 })
 export class RewardModule { }

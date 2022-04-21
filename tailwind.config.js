@@ -12,6 +12,7 @@ module.exports = {
       black: colors.black,
       white: colors.white,
       gray: colors.gray,
+      gold: "#FFD700",
       primary: {
         50: "#e3f2fd",
         100: "#bbdefb",

@@ -1,11 +1,11 @@
 <div class="p-10 flex flex-col gap-4">
   <div class="flex">
     <a mat-icon-button aria-label="Tornar" (click)="back()">
-      <mat-icon>arrow_back</mat-icon>
+      <mat-icon inline="true">arrow_back</mat-icon>
     </a>
     <span class="flex-1"></span>
     <a mat-icon-button aria-label="Editar" (click)="edit()" *ngIf="action === 'view'">
-      <mat-icon>edit</mat-icon>
+      <mat-icon inline="true">edit</mat-icon>
     </a>
   </div>
 
@@ -48,6 +48,8 @@
         </mat-error>
       </mat-form-field>
 
+      <app-reward-icon [color]="color.value" [icon]="icon.value" size="200px" [cost]="cost.value"></app-reward-icon>
+
       <mat-form-field appearance="fill">
         <mat-label>Color</mat-label>
         <input type="color" matInput [formControl]="color">
@@ -61,7 +63,11 @@
 
       <mat-form-field appearance="fill">
         <mat-label>Icona</mat-label>
-        <input type="text" matInput [formControl]="icon">
+        <mat-select [formControl]="icon">
+          <mat-option *ngFor="let form of forms" [value]="form">
+            {{form}}
+          </mat-option>
+        </mat-select>
         <mat-error *ngIf="icon.hasError('required')">
           La icona és <strong>obligatoria</strong>
         </mat-error>
@@ -81,6 +87,10 @@
 
   <ng-template [ngIf]="action === 'view'">
     <div class="flex flex-col items-center gap-4">
+
+      <app-reward-icon [color]="template.color" [icon]="template.icon" size="200px" [cost]="template.cost">
+      </app-reward-icon>
+
       <h1>{{template.name}}</h1>
       <p>{{template.description}}</p>
       <p class="text-5xl">
