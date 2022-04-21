@@ -17,13 +17,13 @@ export class RewardIconComponent implements OnInit {
   forms: Forms;
 
   constructor() {
-    this.textColor = this.contrastColor(this.color);
-
     this.forms= new Forms();
-    console.log(this.forms.getForms());
+
+    this.textColor = '#000000';
   }
 
   ngOnInit(): void {
+    this.textColor = this.contrastColor(this.color);
   }
 
   contrastColor(color: string) {

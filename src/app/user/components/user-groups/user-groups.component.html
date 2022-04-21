@@ -1,16 +1,20 @@
-<div class="mt-4 flex flex-col">
+<div class="content-full">
 
-  <div class="flex justify-end m-4">
-    <button mat-fab color="accent" routerLink="/group/create">
-      <mat-icon>add</mat-icon>
-    </button>
+  <div class="content">
+    <div class="actions">
+      <button mat-fab color="accent" routerLink="/group/create">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
   </div>
 
   <mat-divider></mat-divider>
   <ng-container *ngFor="let group of groups;">
 
     <div matRipple class="list-element" routerLink="/group/{{group.id}}">
-      <span class="list-element__image"></span>
+      <span class="list-element__image rounded-lg">
+        <img src="https://source.boringavatars.com/marble/120/{{group.name}}?square=true" alt="Logo">
+      </span>
       <span class="list-element__title">{{group.name}}</span>
     </div>
 

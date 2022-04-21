@@ -19,3 +19,7 @@ body {
 mat-icon.mat-icon.mat-icon-inline {
   @apply text-3xl;
 }
+
+img {
+  @apply max-w-full;
+}

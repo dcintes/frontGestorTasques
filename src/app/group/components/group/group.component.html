@@ -1,51 +1,54 @@
-<div class="p-10 flex flex-col gap-4">
-  <div class="flex">
-    <a mat-icon-button aria-label="Tornar" routerLink="{{create ? '/' : '/group/'+group.id}}">
-      <mat-icon>arrow_back</mat-icon>
-    </a>
+<div class="content-full">
+  <div class="content">
+    <div class="flex">
+      <a mat-icon-button aria-label="Tornar" routerLink="{{create ? '/' : '/group/'+group_id}}">
+        <mat-icon inline="true">arrow_back</mat-icon>
+      </a>
+    </div>
+
+    <div *ngIf="!create" class="self-center bg-primary-500 rounded-lg w-56 h-56 m-10"></div>
+    <h1 *ngIf="create">Crear nou grup</h1>
+
+    <form class="form" [formGroup]="groupForm" (ngSubmit)="saveGroup()">
+
+      <mat-form-field appearance="fill">
+        <mat-label>Nom</mat-label>
+        <input type="text" matInput [formControl]="name">
+        <mat-error *ngIf="name.hasError('required')">
+          El nom és <strong>obligatori</strong>
+        </mat-error>
+        <mat-error *ngIf="name.hasError('maxlength')">
+          El nom ha de tenir menys de 50 caràcters
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Descripció</mat-label>
+        <textarea type="text" matInput [formControl]="description" rows="4"></textarea>
+        <mat-error *ngIf="description.hasError('required')">
+          La descripció és <strong>obligatoria</strong>
+        </mat-error>
+        <mat-error *ngIf="description.hasError('maxlength')">
+          La descripció ha de tenir menys de 255 caràcters
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Moneda</mat-label>
+        <input type="text" matInput [formControl]="coin">
+        <mat-error *ngIf="coin.hasError('required')">
+          La moneda és <strong>obligatoria</strong>
+        </mat-error>
+        <mat-error *ngIf="coin.hasError('maxlength')">
+          La moneda ha de tenir menys de 50 caràcters
+        </mat-error>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit" [disabled]="!groupForm.valid">{{create ? 'Crear' :
+        'Guardar'}}</button>
+    </form>
+    <button mat-raised-button *ngIf="!create" color="warn" type="button" (click)="deleteGroupDialog()">Eliminar
+      grup</button>
+
   </div>
-
-  <div *ngIf="!create" class="self-center bg-primary-500 rounded-lg w-56 h-56 m-10"></div>
-  <h1 *ngIf="create">Crear nou grup</h1>
-
-  <form class="flex flex-col" [formGroup]="groupForm" (ngSubmit)="saveGroup()">
-
-    <mat-form-field appearance="fill">
-      <mat-label>Nom</mat-label>
-      <input type="text" matInput [formControl]="name">
-      <mat-error *ngIf="name.hasError('required')">
-        El nom és <strong>obligatori</strong>
-      </mat-error>
-      <mat-error *ngIf="name.hasError('maxlength')">
-        El nom ha de tenir menys de 50 caràcters
-      </mat-error>
-    </mat-form-field>
-
-    <mat-form-field appearance="fill">
-      <mat-label>Descripció</mat-label>
-      <textarea type="text" matInput [formControl]="description" rows="4"></textarea>
-      <mat-error *ngIf="description.hasError('required')">
-        La descripció és <strong>obligatoria</strong>
-      </mat-error>
-      <mat-error *ngIf="description.hasError('maxlength')">
-        La descripció ha de tenir menys de 255 caràcters
-      </mat-error>
-    </mat-form-field>
-
-    <mat-form-field appearance="fill">
-      <mat-label>Moneda</mat-label>
-      <input type="text" matInput [formControl]="coin">
-      <mat-error *ngIf="coin.hasError('required')">
-        La moneda és <strong>obligatoria</strong>
-      </mat-error>
-      <mat-error *ngIf="coin.hasError('maxlength')">
-        La moneda ha de tenir menys de 50 caràcters
-      </mat-error>
-    </mat-form-field>
-
-    <button mat-raised-button color="primary" type="submit" [disabled]="!groupForm.valid">{{create ? 'Crear' :
-      'Guardar'}}</button>
-  </form>
-  <button mat-raised-button *ngIf="!create" color="warn" type="button" (click)="deleteGroupDialog()">Eliminar
-    grup</button>
 </div>

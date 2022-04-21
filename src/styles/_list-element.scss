@@ -3,14 +3,14 @@
 }
 
 .list-element--vertical {
-  @apply flex-col;
+  @apply flex-col px-4;
 }
 
 .list-element__title {
 }
 
 .list-element__image {
-  @apply w-8;
+  @apply w-8 overflow-hidden;
 }
 
 .list-element--vertical .list-element__image {

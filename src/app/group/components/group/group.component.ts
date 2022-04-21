@@ -5,8 +5,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/app.reducer';
-import { GroupDTO } from '../../models/group.dto';
 import * as GroupAction from '../../actions';
+import { GroupDTO } from '../../models/group.dto';
 import { GroupDeleteDialogComponent } from '../group-delete-dialog/group-delete-dialog.component';
 
 @Component({
@@ -18,6 +18,7 @@ export class GroupComponent implements OnInit {
 
   create: boolean;
 
+  group_id: string | null;
   group: GroupDTO;
   name: FormControl;
   description: FormControl;
@@ -33,9 +34,9 @@ export class GroupComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
   ) {
 
-    let group_id = this.activatedRoute.snapshot.paramMap.get('group_id');
+    this.group_id = this.activatedRoute.snapshot.paramMap.get('group_id');
 
-    this.create = (group_id === null);
+    this.create = (this.group_id === null);
 
     this.group = new GroupDTO('', '', '', '', new Date(), new Date());
 

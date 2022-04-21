@@ -9,3 +9,11 @@
 .content-full {
   @apply flex flex-col;
 }
+
+.actions {
+  @apply flex flex-row justify-end gap-4;
+}
+
+.form {
+  @apply flex flex-col;
+}
