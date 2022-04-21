@@ -1,0 +1,48 @@
+<div class="content-full">
+
+  <div class="content">
+    <div class="flex">
+      <a mat-icon-button aria-label="Tornar" routerLink="/group/{{group_id}}">
+        <mat-icon inline="true">arrow_back</mat-icon>
+      </a>
+    </div>
+
+    <h1>Membres</h1>
+
+    <p class="text-center">{{members.length}} membres</p>
+
+    <div class="flex justify-end gap-4">
+      <button mat-fab color="accent" (click)="invite()" *ngIf="authMember.admin">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+
+  </div>
+
+  <mat-divider></mat-divider>
+  <ng-container *ngFor="let member of members">
+
+    <div matRipple class="list-element" routerLink="../member/{{member.id}}/view">
+      <span class="list-element__image"></span>
+
+      <span class="list-element__title">{{member.name}}</span>
+
+      <span class="list-element__separator"></span>
+
+      <span class="list-element__action">
+        <button mat-icon-button color="warn" aria-label="Eliminar el membre"
+          (click)="$event.stopPropagation(); delete(member); " *ngIf="!member.admin">
+          <mat-icon inline="true">cancel</mat-icon>
+        </button>
+      </span>
+    </div>
+
+    <mat-divider></mat-divider>
+  </ng-container>
+
+  <div class="content">
+    <button mat-raised-button color="warn" type="button" *ngIf="authMember" (click)="delete(authMember)">Sortir del
+      grup</button>
+  </div>
+
+</div>

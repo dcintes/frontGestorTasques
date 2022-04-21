@@ -1,3 +1,11 @@
 .gold {
   @apply text-gold;
 }
+
+.content {
+  @apply flex flex-col gap-4 mx-10 my-4;
+}
+
+.content-full {
+  @apply flex flex-col;
+}

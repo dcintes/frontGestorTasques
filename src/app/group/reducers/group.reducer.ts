@@ -18,7 +18,7 @@ export interface GroupState {
 export const initialState: GroupState = {
   group: new GroupDTO('','','','',new Date(), new Date()),
   members: [],
-  authMember: new MemberDTO('','','',false,0,new Date(), new Date()),
+  authMember: new MemberDTO('','',false,0),
 	loading: false,
   loaded: false,
   error: null,

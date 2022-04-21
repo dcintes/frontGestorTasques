@@ -4,6 +4,8 @@ import { LoginComponent } from './auth/components/login/login.component';
 import { RegisterComponent } from './auth/components/register/register.component';
 import { GroupHomeComponent } from './group/components/group-home/group-home.component';
 import { GroupComponent } from './group/components/group/group.component';
+import { MemberListComponent } from './member/components/member-list/member-list.component';
+import { MemberComponent } from './member/components/member/member.component';
 import { AuthGuard } from './shared/guards/auth.guard';
 import { TaskComponent } from './task/components/task/task.component';
 import { TemplateRewardComponent } from './template-reward/components/template-reward/template-reward.component';
@@ -21,6 +23,9 @@ const routes: Routes = [
   { path: 'group/create', component: GroupComponent, canActivate: [AuthGuard] },
   { path: 'group/:group_id', component: GroupHomeComponent, canActivate: [AuthGuard] },
   { path: 'group/:group_id/edit', component: GroupComponent, canActivate: [AuthGuard] },
+
+  { path: 'group/:group_id/members', component: MemberListComponent, canActivate: [AuthGuard] },
+  { path: 'group/:group_id/member/:member_id/view', component: MemberComponent, canActivate: [AuthGuard] },
   
   { path: 'group/:group_id/task/create', component: TaskComponent, canActivate: [AuthGuard] },
   { path: 'group/:group_id/task/:task_id/:action', component: TaskComponent, canActivate: [AuthGuard] },

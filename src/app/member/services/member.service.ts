@@ -17,9 +17,25 @@ export class MemberService {
     private errorService: ErrorService,
   ) { }
 
-  getMembers(group_id: string): Observable<MemberDTO[]> {
+  listMembers(group_id: string): Observable<MemberDTO[]> {
     return this.http
       .get<MemberDTO[]>(this.baseUrl+'group/'+group_id+'/members')
+      .pipe(catchError(err => {
+        return this.errorService.handleHttpError(err)
+      }));
+  }
+
+  getMember(group_id: string, member_id: string): Observable<MemberDTO> {
+    return this.http
+      .get<MemberDTO>(this.baseUrl+'group/'+group_id+'/member/'+member_id)
+      .pipe(catchError(err => {
+        return this.errorService.handleHttpError(err)
+      }));
+  }
+
+  deleteMember(group_id: string, member_id: string): Observable<any> {
+    return this.http
+      .delete(this.baseUrl+'group/'+group_id+'/member'+member_id)
       .pipe(catchError(err => {
         return this.errorService.handleHttpError(err)
       }));

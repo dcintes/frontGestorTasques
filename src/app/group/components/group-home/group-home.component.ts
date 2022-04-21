@@ -30,7 +30,7 @@ export class GroupHomeComponent implements OnInit {
     this.group = new GroupDTO('','','','',new Date(), new Date());
 
     this.members = [];
-    this.authMember = new MemberDTO('','','',false,0,new Date(), new Date());
+    this.authMember = new MemberDTO('','',false,0);
 
     this.user_id = '';
 

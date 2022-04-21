@@ -1,0 +1,9 @@
+<div mat-dialog-content>
+  <p>Al eliminar el membre es perdrà tot el seu progues.</p>
+
+  <p>Voleu eliminar el membre {{data.name}}?</p>
+
+  <div mat-dialog-actions class="flex justify-center">
+    <button mat-button color="warn" [mat-dialog-close]="true">Eliminar</button>
+    <button mat-button color="primary" [mat-dialog-close]="false">Cancelar</button>
+  </div>

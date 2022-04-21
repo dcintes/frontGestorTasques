@@ -13,6 +13,7 @@ import { EffectsArray } from './app.effects';
 import { appReducers } from './app.reducer';
 import { AuthModule } from './auth/auth.module';
 import { GroupModule } from './group/group.module';
+import { MemberModule } from './member/member.module';
 import { RewardModule } from './reward/reward.module';
 import { AuthInterceptorService } from './shared/services/auth-interceptor.service';
 import { TaskModule } from './task/task.module';
@@ -34,6 +35,7 @@ import { UserModule } from './user/user.module';
     AuthModule,
     UserModule,
     GroupModule,
+    MemberModule,
     TaskModule,
     RewardModule,
     TemplateTaskModule,
