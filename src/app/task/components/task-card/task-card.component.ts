@@ -25,10 +25,7 @@ export class TaskCardComponent implements OnInit {
       const assigned = group.members.find(member => member.id === this.task.assigned_id);
       if(assigned) {
         this.assigned = assigned;
-      } else {
-        this.router.navigate(['/group',this.task.group_id]);
       }
-
     });
   }
 
