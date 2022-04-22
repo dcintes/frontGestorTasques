@@ -7,7 +7,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
-import { UserModule } from '../user/user.module';
+import { SharedModule } from '../shared/shared.module';
 import { MemberDeleteDialogComponent } from './components/member-delete-dialog/member-delete-dialog.component';
 import { MemberInviteDialogComponent } from './components/member-invite-dialog/member-invite-dialog.component';
 import { MemberListComponent } from './components/member-list/member-list.component';
@@ -24,7 +24,7 @@ import { MemberComponent } from './components/member/member.component';
   ],
   imports: [
     CommonModule,
-    UserModule,
+    SharedModule,
     RouterModule,
     MatDividerModule,
     MatIconModule,

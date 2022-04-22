@@ -11,13 +11,13 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
+import { SharedModule } from '../shared/shared.module';
 import { InvitationDialogComponent } from './components/invitation-dialog/invitation-dialog.component';
 import { UserDeleteDialogComponent } from './components/user-delete-dialog/user-delete-dialog.component';
 import { UserGroupsComponent } from './components/user-groups/user-groups.component';
 import { UserHomeComponent } from './components/user-home/user-home.component';
 import { UserInvitationsComponent } from './components/user-invitations/user-invitations.component';
 import { UserComponent } from './components/user/user.component';
-import { UserAvatarPipe } from './pipes/user-avatar.pipe';
 
 
 @NgModule({
@@ -28,10 +28,10 @@ import { UserAvatarPipe } from './pipes/user-avatar.pipe';
     InvitationDialogComponent,
     UserComponent,
     UserDeleteDialogComponent,
-    UserAvatarPipe
   ],
   imports: [
     CommonModule,
+    SharedModule,
     RouterModule,
     ReactiveFormsModule,
     MatInputModule,
@@ -44,8 +44,5 @@ import { UserAvatarPipe } from './pipes/user-avatar.pipe';
     MatRippleModule,
     MatDialogModule,
   ],
-  exports: [
-    UserAvatarPipe,
-  ]
 })
 export class UserModule { }

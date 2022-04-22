@@ -6,7 +6,10 @@
       </a>
     </div>
 
-    <div *ngIf="!create" class="self-center bg-primary-500 rounded-lg w-56 h-56 m-10"></div>
+    <div *ngIf="!create" class="content-center">
+      <img src="{{group | groupAvatar:350}}" alt="Logo" class="groupAvatar w-1/2">
+    </div>
+
     <h1 *ngIf="create">Crear nou grup</h1>
 
     <form class="form" [formGroup]="groupForm" (ngSubmit)="saveGroup()">

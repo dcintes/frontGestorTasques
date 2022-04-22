@@ -12,8 +12,8 @@
   <ng-container *ngFor="let group of groups;">
 
     <div matRipple class="list-element" routerLink="/group/{{group.id}}">
-      <span class="list-element__image rounded-lg">
-        <img src="https://source.boringavatars.com/marble/120/{{group.name}}?square=true" alt="Logo">
+      <span class="list-element__image">
+        <img src="{{group | groupAvatar:32}}" alt="Logo" class="groupAvatar">
       </span>
       <span class="list-element__title">{{group.name}}</span>
     </div>

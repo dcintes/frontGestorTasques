@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { MemberDTO } from 'src/app/member/models/member.dto';
 import { Md5 } from 'ts-md5/dist/md5';
-import { UserDTO } from '../models/user.dto';
+import { UserDTO } from '../../user/models/user.dto';
 
 
 

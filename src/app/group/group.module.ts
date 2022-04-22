@@ -11,6 +11,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
+import { SharedModule } from '../shared/shared.module';
 import { TaskModule } from '../task/task.module';
 import { TemplateRewardModule } from '../template-reward/template-reward.module';
 import { GroupDeleteDialogComponent } from './components/group-delete-dialog/group-delete-dialog.component';
@@ -25,6 +26,7 @@ import { GroupComponent } from './components/group/group.component';
   ],
   imports: [
     CommonModule,
+    SharedModule,
     RouterModule,
     ReactiveFormsModule,
     MatInputModule,
@@ -38,6 +40,6 @@ import { GroupComponent } from './components/group/group.component';
     MatDialogModule,
     TaskModule,
     TemplateRewardModule,
-  ]
+  ],
 })
 export class GroupModule { }

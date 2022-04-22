@@ -11,7 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { RouterModule } from '@angular/router';
-import { UserModule } from '../user/user.module';
+import { SharedModule } from '../shared/shared.module';
 import { TaskAssignDialogComponent } from './components/task-assign-dialog/task-assign-dialog.component';
 import { TaskCardComponent } from './components/task-card/task-card.component';
 import { TaskCreateDialogComponent } from './components/task-create-dialog/task-create-dialog.component';
@@ -31,9 +31,9 @@ import { TaskComponent } from './components/task/task.component';
   ],
   imports: [
     CommonModule,
+    SharedModule,
     RouterModule,
     ReactiveFormsModule,
-    UserModule,
     MatInputModule,
     MatFormFieldModule,
     MatIconModule,
