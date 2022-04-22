@@ -63,8 +63,9 @@
       <div class="flex flex-col items-center gap-4">
         <h1>{{task.name}}</h1>
         <mat-chip-list>
-          <mat-chip *ngIf="assigned">
-            <mat-chip-avatar class="bg-primary-500">
+          <mat-chip *ngIf="assigned" routerLink="/group/{{task.group_id}}/member/{{assigned.id}}//view">
+            <mat-chip-avatar>
+              <img src="{{assigned | userAvatar:24}}" class="userAvatar">
             </mat-chip-avatar>
             {{assigned.name}}
           </mat-chip>

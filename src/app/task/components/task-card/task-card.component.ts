@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/app.reducer';
 import { MemberDTO } from 'src/app/member/models/member.dto';
@@ -12,16 +13,27 @@ import { TaskDTO } from '../../models/task.dto';
 export class TaskCardComponent implements OnInit {
 
   @Input() task!: TaskDTO;
-  assigned!: MemberDTO | undefined;
+  assigned!: MemberDTO;
 
   constructor(
     private store: Store<AppState>,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
     this.store.select(state => state.group).subscribe(group => {
-      this.assigned = group.members.find(member => member.id === this.task.assigned_id);
+      const assigned = group.members.find(member => member.id === this.task.assigned_id);
+      if(assigned) {
+        this.assigned = assigned;
+      } else {
+        this.router.navigate(['/group',this.task.group_id]);
+      }
+
     });
+  }
+
+  goMember(){
+    this.router.navigate(['/group',this.task.group_id,'member', this.assigned.id, 'view']);
   }
 
 }

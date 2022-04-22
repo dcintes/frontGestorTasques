@@ -6,8 +6,9 @@
     <mat-chip *ngIf="task.completed_date" color="accent" selected>
       Completada
     </mat-chip>
-    <mat-chip *ngIf="assigned">
-      <mat-chip-avatar class="bg-primary-500">
+    <mat-chip *ngIf="assigned" (click)="goMember(); $event.stopPropagation();">
+      <mat-chip-avatar>
+        <img src="{{assigned | userAvatar:24}}" class="userAvatar">
       </mat-chip-avatar>
       {{assigned.name}}
     </mat-chip>

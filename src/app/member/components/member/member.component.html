@@ -1,1 +1,23 @@
-<p>member works!</p>
+<div class="content-full">
+  <div class="content">
+    <div class="flex">
+      <a mat-icon-button aria-label="Tornar" (click)="back()">
+        <mat-icon inline="true">arrow_back</mat-icon>
+      </a>
+    </div>
+
+    <div class="content-center">
+      <img src="{{member | userAvatar:350}}" class="w-1/2">
+      <h1>{{member.name}}</h1>
+      <mat-chip-list>
+        <mat-chip *ngIf="member.created_at" color="accent">
+          {{member.created_at}}
+        </mat-chip>
+      </mat-chip-list>
+      <p class="text-5xl">
+        {{member.balance}}
+        <mat-icon inline="true" class="text-gold">generating_tokens</mat-icon>
+      </p>
+    </div>
+  </div>
+</div>

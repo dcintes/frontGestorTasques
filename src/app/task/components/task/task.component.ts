@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/app.reducer';
-import { TaskDTO } from '../../models/task.dto';
-import * as TaskActions from '../../actions';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MemberDTO } from 'src/app/member/models/member.dto';
-import { TaskDeleteDialogComponent } from '../task-delete-dialog/task-delete-dialog.component';
+import * as TaskActions from '../../actions';
+import { TaskDTO } from '../../models/task.dto';
 import { TaskAssignDialogComponent } from '../task-assign-dialog/task-assign-dialog.component';
-import { MatDialog } from '@angular/material/dialog';
+import { TaskDeleteDialogComponent } from '../task-delete-dialog/task-delete-dialog.component';
 
 @Component({
   selector: 'app-task',
@@ -51,11 +51,11 @@ export class TaskComponent implements OnInit {
     this.isMyTask = false;
     this.isAdmin = false;
 
-    if(group_id == null) {
+    if(group_id) {
+      this.group_id = group_id;
+    } else {
       // Si no te group_id, url incorrecte
       this.router.navigate(['/']);
-    } else {
-      this.group_id = group_id;
     }
 
     if(this.task_id == null) {

@@ -1,22 +1,23 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UserHomeComponent } from './components/user-home/user-home.component';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatIconModule } from '@angular/material/icon';
-import { MatTabsModule } from '@angular/material/tabs';
-import { MatDividerModule } from '@angular/material/divider';
-import { UserGroupsComponent } from './components/user-groups/user-groups.component';
+import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatRippleModule } from '@angular/material/core';
 import { MatDialogModule } from '@angular/material/dialog';
-import { UserInvitationsComponent } from './components/user-invitations/user-invitations.component';
-import { InvitationDialogComponent } from './components/invitation-dialog/invitation-dialog.component';
-import { RouterModule } from '@angular/router';
-import { UserComponent } from './components/user/user.component';
+import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-import { ReactiveFormsModule } from '@angular/forms';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { RouterModule } from '@angular/router';
+import { InvitationDialogComponent } from './components/invitation-dialog/invitation-dialog.component';
 import { UserDeleteDialogComponent } from './components/user-delete-dialog/user-delete-dialog.component';
+import { UserGroupsComponent } from './components/user-groups/user-groups.component';
+import { UserHomeComponent } from './components/user-home/user-home.component';
+import { UserInvitationsComponent } from './components/user-invitations/user-invitations.component';
+import { UserComponent } from './components/user/user.component';
+import { UserAvatarPipe } from './pipes/user-avatar.pipe';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { UserDeleteDialogComponent } from './components/user-delete-dialog/user-
     UserInvitationsComponent,
     InvitationDialogComponent,
     UserComponent,
-    UserDeleteDialogComponent
+    UserDeleteDialogComponent,
+    UserAvatarPipe
   ],
   imports: [
     CommonModule,
@@ -41,6 +43,9 @@ import { UserDeleteDialogComponent } from './components/user-delete-dialog/user-
     MatButtonModule,
     MatRippleModule,
     MatDialogModule,
+  ],
+  exports: [
+    UserAvatarPipe,
   ]
 })
 export class UserModule { }

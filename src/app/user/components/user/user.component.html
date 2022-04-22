@@ -1,66 +1,70 @@
-<div class="p-10 flex flex-col gap-4">
-  <div class="flex">
-    <a mat-icon-button aria-label="Tornar" routerLink="/">
-      <mat-icon>arrow_back</mat-icon>
-    </a>
+<div class="content-full">
+  <div class="content">
+    <div class="flex">
+      <a mat-icon-button aria-label="Tornar" routerLink="/">
+        <mat-icon inline="true">arrow_back</mat-icon>
+      </a>
+    </div>
+
+    <div class="content-center">
+      <img src="{{user | userAvatar:350}}" class="w-1/2 userAvatar">
+    </div>
+
+    <form class="form" [formGroup]="userForm" (ngSubmit)="saveUser()">
+
+      <mat-form-field appearance="fill">
+        <mat-label>Nom</mat-label>
+        <input type="text" matInput [formControl]="name">
+        <mat-error *ngIf="name.hasError('required')">
+          El nom és <strong>obligatori</strong>
+        </mat-error>
+        <mat-error *ngIf="name.hasError('maxlength')">
+          El nom ha de tenir menys de 50 caràcters
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput [formControl]="email" placeholder="Ex. pat@example.com">
+        <mat-error *ngIf="email.hasError('pattern')">
+          El correu no es valid
+        </mat-error>
+        <mat-error *ngIf="email.hasError('required')">
+          El correu és <strong>obligatori</strong>
+        </mat-error>
+        <mat-error *ngIf="email.hasError('maxlength')">
+          El correu ha de tenir menys de 50 caràcters
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Contrasenya</mat-label>
+        <input type="password" matInput [formControl]="password">
+        <mat-error *ngIf="password.hasError('required')">
+          La contrasenya és <strong>obligatoria</strong>
+        </mat-error>
+        <mat-error *ngIf="password.hasError('minlength') || password.hasError('maxlength')">
+          La contrasenya ha de tenir entre 8 i 16 caràcters
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Confirmació de la contrasenya</mat-label>
+        <input type="password" matInput [formControl]="password_conf">
+        <mat-error *ngIf="password_conf.hasError('required')">
+          La contrasenya és <strong>obligatoria</strong>
+        </mat-error>
+        <mat-error *ngIf="password_conf.hasError('minlength') || password_conf.hasError('maxlength')">
+          La contrasenya ha de tenir entre 8 i 16 caràcters
+        </mat-error>
+      </mat-form-field>
+
+      <mat-error *ngIf="password_conf.touched && userForm.hasError('match')">
+        La contrasenya i la confirmació no son iguals
+      </mat-error>
+
+      <button mat-raised-button color="primary" type="submit" [disabled]="!userForm.valid">Guardar</button>
+    </form>
+    <button mat-raised-button color="warn" type="button" (click)="deleteUserDialog()">Eliminar usuari</button>
   </div>
-
-  <div class="self-center bg-primary-500 rounded-full w-56 h-56 m-10"></div>
-
-  <form class="flex flex-col" [formGroup]="userForm" (ngSubmit)="saveUser()">
-
-    <mat-form-field appearance="fill">
-      <mat-label>Nom</mat-label>
-      <input type="text" matInput [formControl]="name">
-      <mat-error *ngIf="name.hasError('required')">
-        El nom és <strong>obligatori</strong>
-      </mat-error>
-      <mat-error *ngIf="name.hasError('maxlength')">
-        El nom ha de tenir menys de 50 caràcters
-      </mat-error>
-    </mat-form-field>
-
-    <mat-form-field appearance="fill">
-      <mat-label>Email</mat-label>
-      <input type="email" matInput [formControl]="email" placeholder="Ex. pat@example.com">
-      <mat-error *ngIf="email.hasError('pattern')">
-        El correu no es valid
-      </mat-error>
-      <mat-error *ngIf="email.hasError('required')">
-        El correu és <strong>obligatori</strong>
-      </mat-error>
-      <mat-error *ngIf="email.hasError('maxlength')">
-        El correu ha de tenir menys de 50 caràcters
-      </mat-error>
-    </mat-form-field>
-
-    <mat-form-field appearance="fill">
-      <mat-label>Contrasenya</mat-label>
-      <input type="password" matInput [formControl]="password">
-      <mat-error *ngIf="password.hasError('required')">
-        La contrasenya és <strong>obligatoria</strong>
-      </mat-error>
-      <mat-error *ngIf="password.hasError('minlength') || password.hasError('maxlength')">
-        La contrasenya ha de tenir entre 8 i 16 caràcters
-      </mat-error>
-    </mat-form-field>
-
-    <mat-form-field appearance="fill">
-      <mat-label>Confirmació de la contrasenya</mat-label>
-      <input type="password" matInput [formControl]="password_conf">
-      <mat-error *ngIf="password_conf.hasError('required')">
-        La contrasenya és <strong>obligatoria</strong>
-      </mat-error>
-      <mat-error *ngIf="password_conf.hasError('minlength') || password_conf.hasError('maxlength')">
-        La contrasenya ha de tenir entre 8 i 16 caràcters
-      </mat-error>
-    </mat-form-field>
-
-    <mat-error *ngIf="password_conf.touched && userForm.hasError('match')">
-      La contrasenya i la confirmació no son iguals
-    </mat-error>
-
-    <button mat-raised-button color="primary" type="submit" [disabled]="!userForm.valid">Guardar</button>
-  </form>
-  <button mat-raised-button color="warn" type="button" (click)="deleteUserDialog()">Eliminar usuari</button>
 </div>

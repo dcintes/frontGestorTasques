@@ -23,7 +23,9 @@
   <ng-container *ngFor="let member of members">
 
     <div matRipple class="list-element" routerLink="../member/{{member.id}}/view">
-      <span class="list-element__image"></span>
+      <span class="list-element__image">
+        <img src="{{member | userAvatar:32}}">
+      </span>
 
       <span class="list-element__title">{{member.name}}</span>
 
