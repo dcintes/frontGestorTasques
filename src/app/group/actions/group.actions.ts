@@ -1,6 +1,7 @@
 import { createAction, props } from '@ngrx/store';
 import { MemberDTO } from 'src/app/member/models/member.dto';
 import { GroupDTO } from '../models/group.dto';
+import { StadisticsDTO } from '../models/stadistics.model';
 
 export const getGroup = createAction(
   '[Group] get group',
@@ -64,4 +65,14 @@ export const deleteGroupSuccess = createAction(
 export const pushSelectedTab = createAction(
   '[Group] set selected tab',
   props<{ selectedTab: number }>()
+);
+
+export const stadisticsGroup = createAction(
+  '[Group] stadistics group',
+  props<{ group_id: string }>()
+);
+
+export const stadisticsGroupSuccess = createAction(
+  '[Group] stadistics group success',
+  props<{ stadistics: StadisticsDTO }>()
 );

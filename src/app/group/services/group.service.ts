@@ -4,6 +4,7 @@ import { catchError, Observable } from 'rxjs';
 import { ErrorService } from 'src/app/shared/services/error.service';
 import { environment } from 'src/environments/environment';
 import { GroupDTO } from '../models/group.dto';
+import { StadisticsDTO } from '../models/stadistics.model';
 
 @Injectable({
   providedIn: 'root'
@@ -44,6 +45,14 @@ export class GroupService {
   deleteGroup(group_id: string): Observable<any> {
     return this.http
       .delete(this.baseUrl+'group/'+group_id)
+      .pipe(catchError(err => {
+        return this.errorService.handleHttpError(err)
+      }));
+  }
+
+  stadistics(group_id: string): Observable<StadisticsDTO> {
+    return this.http
+      .get<StadisticsDTO>(this.baseUrl+'group/'+group_id+'/stadistics')
       .pipe(catchError(err => {
         return this.errorService.handleHttpError(err)
       }));

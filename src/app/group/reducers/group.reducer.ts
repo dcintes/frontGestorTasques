@@ -2,6 +2,7 @@ import { createReducer, on } from '@ngrx/store';
 import { GroupDTO } from 'src/app/group/models/group.dto';
 import { MemberDTO } from 'src/app/member/models/member.dto';
 import * as groupActions from "../actions";
+import { StadisticsDTO } from '../models/stadistics.model';
 
 export interface GroupState {
   group: GroupDTO,
@@ -12,6 +13,7 @@ export interface GroupState {
   error: any,
   payload: any,
   selectedTab: number;
+  stadistics: StadisticsDTO,
 }
 
 // Estat inicial
@@ -24,6 +26,7 @@ export const initialState: GroupState = {
   error: null,
   payload: null,
   selectedTab: 0,
+  stadistics: new StadisticsDTO(),
 };
 
 const _groupReducer = createReducer(
@@ -123,6 +126,20 @@ const _groupReducer = createReducer(
   on(groupActions.pushSelectedTab, (state, {selectedTab}) => ({
     ...state,
     selectedTab: selectedTab,
+  })),
+
+  on(groupActions.stadisticsGroup, (state, {group_id}) => ({
+		...state,
+    loading: true,
+    loaded: false,
+    error: null,
+    payload: null,
+	})),
+  on(groupActions.stadisticsGroupSuccess, (state, {stadistics}) => ({
+    ...state,
+    loading: false,
+    loaded: true,
+    stadistics: stadistics,
   })),
 
 );

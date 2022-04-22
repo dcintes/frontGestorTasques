@@ -107,4 +107,21 @@ export class GroupEffects {
       ))
     )
   );
+
+  stadistics$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(groupAction.stadisticsGroup),
+      exhaustMap(( { group_id } ) =>
+      this.groupService.stadistics(group_id).pipe(
+        map((stadistics) => {
+          console.debug(stadistics);
+          return groupAction.stadisticsGroupSuccess({stadistics: stadistics})
+        }),
+        catchError((err) => {
+          console.error(err);
+          return of(groupAction.error({payload: err}))
+        })
+      ))
+    )
+  );
 }

@@ -11,18 +11,21 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
+import { NgxEchartsModule } from 'ngx-echarts';
 import { SharedModule } from '../shared/shared.module';
 import { TaskModule } from '../task/task.module';
 import { TemplateRewardModule } from '../template-reward/template-reward.module';
 import { GroupDeleteDialogComponent } from './components/group-delete-dialog/group-delete-dialog.component';
 import { GroupHomeComponent } from './components/group-home/group-home.component';
 import { GroupComponent } from './components/group/group.component';
+import { StadisticsComponent } from './components/stadistics/stadistics.component';
 
 @NgModule({
   declarations: [
     GroupHomeComponent,
     GroupComponent,
-    GroupDeleteDialogComponent
+    GroupDeleteDialogComponent,
+    StadisticsComponent
   ],
   imports: [
     CommonModule,
@@ -40,6 +43,9 @@ import { GroupComponent } from './components/group/group.component';
     MatDialogModule,
     TaskModule,
     TemplateRewardModule,
+    NgxEchartsModule.forRoot({
+      echarts: () => import('echarts')
+    })
   ],
 })
 export class GroupModule { }
