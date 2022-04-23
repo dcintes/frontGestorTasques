@@ -30,8 +30,6 @@ export class StadisticsComponent implements OnInit {
     this.members = [];
     this.stadistics = new StadisticsDTO();
 
-    this.tasksChart = { size: 0 };
-
     this.store.select(state => state.group.members).subscribe(members => {
       this.members = members;
     });
@@ -52,11 +50,15 @@ export class StadisticsComponent implements OnInit {
   initCharts(): void{
     if(this.stadistics.tasksByUser.length > 0) {
 
-      const tags = this.stadistics.tasksByUser.map(member => this.getMemberName(member.member_id,'Sense Assignar'));
-      const values = this.stadistics.tasksByUser.map(member => member.total);
+      const data = [...this.stadistics.tasksByUser]
+        .sort((a, b) => a.total - b.total)
+        .map(member => {
+          return [ this.getMemberName(member.member_id,'Sense Assignar'), member.total ]
+        }
+      );
 
       this.tasksChart = {
-        size: tags.length*30,
+        size: data.length*30,
         grid: {
           top:0,
           left:0,
@@ -65,14 +67,15 @@ export class StadisticsComponent implements OnInit {
         },
         yAxis: {
           type: 'category',
-          data: tags,
         },
         xAxis: {
           type: 'value'
         },
+        dataset: {
+          source: data,
+        },
         series: [
           {
-            data: values,
             type: 'bar',
             label: {
               show: true,
@@ -84,6 +87,8 @@ export class StadisticsComponent implements OnInit {
           }
         ]
       };
+    } else {
+      this.tasksChart = null;
     }
   }
 

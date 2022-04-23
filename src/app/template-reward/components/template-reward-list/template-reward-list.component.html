@@ -8,11 +8,17 @@
       </button>
     </div>
 
+    <h2>Recompenses</h2>
+
     <div class="grid grid-cols-3 gap-10">
       <ng-container *ngFor="let template of templates">
         <app-template-reward-card [template]="template"></app-template-reward-card>
       </ng-container>
     </div>
+
+    <ng-template [ngIf]="templates.length < 1">
+      <p class="text-center">No hi ha recompenses definides</p>
+    </ng-template>
   </div>
 
 </div>

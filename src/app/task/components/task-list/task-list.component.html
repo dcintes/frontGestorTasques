@@ -13,16 +13,24 @@
   </div>
 
   <h2>Les meves tasques</h2>
-  <mat-divider></mat-divider>
+  <ng-template [ngIf]="myTasks.length < 1">
+    <p class="text-center">No tens tasques assignades</p>
+  </ng-template>
+
   <ng-container *ngFor="let task of myTasks">
-    <app-task-card [task]="task"></app-task-card>
     <mat-divider></mat-divider>
+    <app-task-card [task]="task"></app-task-card>
   </ng-container>
+  <mat-divider></mat-divider>
 
   <h2>Pendents</h2>
+  <ng-template [ngIf]="myTasks.length < 1">
+    <p class="text-center">No hi ha tasques pendents</p>
+  </ng-template>
   <mat-divider></mat-divider>
   <ng-container *ngFor="let task of todo">
-    <app-task-card [task]="task"></app-task-card>
     <mat-divider></mat-divider>
+    <app-task-card [task]="task"></app-task-card>
   </ng-container>
+  <mat-divider></mat-divider>
 </div>
