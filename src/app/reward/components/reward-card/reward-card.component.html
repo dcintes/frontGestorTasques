@@ -1,0 +1,16 @@
+<div matRipple class="list-element" routerLink="/group/{{reward.group_id}}/reward/{{reward.id}}/view">
+  <span class="list-element__title">{{reward.name}}</span>
+  <span class="list-element__separator"></span>
+
+  <mat-chip-list class="list-element__action">
+    <mat-chip *ngIf="reward.claimed_date" color="accent" selected>
+      Reclamada
+    </mat-chip>
+    <mat-chip *ngIf="claimer" (click)="goMember(); $event.stopPropagation();">
+      <mat-chip-avatar>
+        <img src="{{claimer | userAvatar:24}}" class="userAvatar">
+      </mat-chip-avatar>
+      {{claimer.name}}
+    </mat-chip>
+  </mat-chip-list>
+</div>

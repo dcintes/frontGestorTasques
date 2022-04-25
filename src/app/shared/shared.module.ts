@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { DateAgoPipe } from './pipes/date-ago.pipe';
 import { GroupAvatarPipe } from './pipes/group-avatar.pipe';
 import { UserAvatarPipe } from './pipes/user-avatar.pipe';
 
@@ -9,6 +10,7 @@ import { UserAvatarPipe } from './pipes/user-avatar.pipe';
   declarations: [
     UserAvatarPipe,
     GroupAvatarPipe,
+    DateAgoPipe,
   ],
   imports: [
     CommonModule
@@ -16,6 +18,7 @@ import { UserAvatarPipe } from './pipes/user-avatar.pipe';
   exports: [
     UserAvatarPipe,
     GroupAvatarPipe,
+    DateAgoPipe,
   ],
 })
 export class SharedModule { }

@@ -2,6 +2,7 @@ import { ActionReducerMap } from "@ngrx/store";
 import * as authReducer from './auth/reducers';
 import * as groupReducer from './group/reducers';
 import * as memberReducer from './member/reducers';
+import * as rewardReducer from './reward/reducers';
 import * as taskReducer from './task/reducers';
 import * as templateRewardReducer from './template-reward/reducers';
 import * as templateTaskReducer from './template-task/reducers';
@@ -14,6 +15,7 @@ export interface AppState {
 	group: groupReducer.GroupState,
 	member: memberReducer.MemberState,
 	task: taskReducer.TaskState,
+	reward: rewardReducer.RewardState,
 	templateTask: templateTaskReducer.TemplateTaskState,
 	templateReward: templateRewardReducer.TemplateRewardState
 }
@@ -24,6 +26,7 @@ export const appReducers: ActionReducerMap<AppState> = {
 	group: groupReducer.groupReducer,
 	member: memberReducer.memberReducer,
 	task: taskReducer.taskReducer,
+	reward: rewardReducer.rewardReducer,
 	templateTask: templateTaskReducer.templateTaskReducer,
 	templateReward: templateRewardReducer.templateRewardReducer,
 };

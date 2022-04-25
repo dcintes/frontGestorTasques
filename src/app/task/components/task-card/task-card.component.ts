@@ -21,8 +21,8 @@ export class TaskCardComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.store.select(state => state.group).subscribe(group => {
-      const assigned = group.members.find(member => member.id === this.task.assigned_id);
+    this.store.select(state => state.group.members).subscribe(members => {
+      const assigned = members.find(member => member.id === this.task.assigned_id);
       if(assigned) {
         this.assigned = assigned;
       }

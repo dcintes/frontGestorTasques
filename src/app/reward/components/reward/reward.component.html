@@ -1,0 +1,33 @@
+<div class="content-full">
+  <div class="content">
+
+    <div class="flex">
+      <a mat-icon-button aria-label="Tornar" (click)="back()">
+        <mat-icon inline="true">arrow_back</mat-icon>
+      </a>
+    </div>
+
+    <div class="flex flex-col items-center gap-4">
+      <app-reward-icon [color]="reward.color" [icon]="reward.icon" size="200px" [cost]="reward.cost">
+      </app-reward-icon>
+
+      <h1>{{reward.name}}</h1>
+      <mat-chip-list>
+        <mat-chip *ngIf="claimer" routerLink="/group/{{reward.group_id}}/member/{{claimer.id}}//view">
+          <mat-chip-avatar>
+            <img src="{{claimer | userAvatar:24}}" class="userAvatar">
+          </mat-chip-avatar>
+          {{claimer.name}}
+        </mat-chip>
+        <mat-chip *ngIf="reward.claimed_date" color="accent" selected>
+          {{reward.claimed_date | dateAgo}}
+        </mat-chip>
+      </mat-chip-list>
+      <p>{{reward.description}}</p>
+      <p class="text-5xl">
+        {{reward.cost}}
+        <mat-icon inline="true" class="gold">generating_tokens</mat-icon>
+      </p>
+    </div>
+  </div>
+</div>

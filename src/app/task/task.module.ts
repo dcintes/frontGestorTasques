@@ -45,7 +45,8 @@ import { TaskComponent } from './components/task/task.component';
     MatChipsModule,
   ],
   exports: [
-    TaskListComponent
+    TaskListComponent,
+    TaskCardComponent,
   ]
 })
 export class TaskModule { }

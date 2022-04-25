@@ -70,7 +70,7 @@
             {{assigned.name}}
           </mat-chip>
           <mat-chip *ngIf="completed" color="accent" selected>
-            {{task.completed_date}}
+            {{task.completed_date | dateAgo}}
           </mat-chip>
         </mat-chip-list>
         <p>{{task.description}}</p>

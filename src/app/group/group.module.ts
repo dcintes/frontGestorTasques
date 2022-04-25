@@ -12,11 +12,13 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
 import { NgxEchartsModule } from 'ngx-echarts';
+import { RewardModule } from '../reward/reward.module';
 import { SharedModule } from '../shared/shared.module';
 import { TaskModule } from '../task/task.module';
 import { TemplateRewardModule } from '../template-reward/template-reward.module';
 import { GroupDeleteDialogComponent } from './components/group-delete-dialog/group-delete-dialog.component';
 import { GroupHomeComponent } from './components/group-home/group-home.component';
+import { GroupNewsComponent } from './components/group-news/group-news.component';
 import { GroupComponent } from './components/group/group.component';
 import { StadisticsComponent } from './components/stadistics/stadistics.component';
 
@@ -25,7 +27,8 @@ import { StadisticsComponent } from './components/stadistics/stadistics.componen
     GroupHomeComponent,
     GroupComponent,
     GroupDeleteDialogComponent,
-    StadisticsComponent
+    StadisticsComponent,
+    GroupNewsComponent,
   ],
   imports: [
     CommonModule,
@@ -43,6 +46,7 @@ import { StadisticsComponent } from './components/stadistics/stadistics.componen
     MatDialogModule,
     TaskModule,
     TemplateRewardModule,
+    RewardModule,
     NgxEchartsModule.forRoot({
       echarts: () => import('echarts')
     })

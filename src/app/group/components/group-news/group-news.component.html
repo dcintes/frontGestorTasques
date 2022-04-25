@@ -1,0 +1,23 @@
+<div class="content-full">
+  <ng-container *ngFor="let new of news; index as i">
+
+    <ng-template [ngIf]="i==0 || new.dateFormat !== news[i-1].dateFormat">
+      <div class="content">
+        <h3>{{new.dateFormat}}</h3>
+      </div>
+    </ng-template>
+
+    <ng-template [ngIf]="new.isTask">
+      <mat-divider></mat-divider>
+      <app-task-card [task]="new.getTask()"></app-task-card>
+    </ng-template>
+
+    <ng-template [ngIf]="new.isReward">
+      <mat-divider></mat-divider>
+      <app-reward-card [reward]="new.getReward()"></app-reward-card>
+    </ng-template>
+
+    <mat-divider></mat-divider>
+
+  </ng-container>
+</div>

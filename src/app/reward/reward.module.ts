@@ -1,20 +1,31 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
+import { RouterModule } from '@angular/router';
+import { SharedModule } from '../shared/shared.module';
+import { RewardCardComponent } from './components/reward-card/reward-card.component';
 import { RewardIconComponent } from './components/reward-icon/reward-icon.component';
+import { RewardComponent } from './components/reward/reward.component';
 
 
 
 @NgModule({
   declarations: [
-    RewardIconComponent
+    RewardIconComponent,
+    RewardCardComponent,
+    RewardComponent
   ],
   imports: [
     CommonModule,
+    RouterModule,
     MatIconModule,
+    SharedModule,
+    MatChipsModule,
   ],
   exports: [
-    RewardIconComponent
+    RewardIconComponent,
+    RewardCardComponent,
   ]
 })
 export class RewardModule { }

@@ -2,6 +2,8 @@ import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { catchError, exhaustMap, map, of } from "rxjs";
 import { MemberService } from "src/app/member/services/member.service";
+import { RewardService } from "src/app/reward/services/reward.service";
+import { TaskService } from "src/app/task/services/task.service";
 import * as groupAction from "../actions";
 import { GroupService } from "../services/group.service";
 
@@ -13,6 +15,8 @@ export class GroupEffects {
 		private actions$: Actions,
 		private groupService: GroupService,
     private memberService: MemberService,
+    private taskService: TaskService,
+    private rewardService: RewardService,
 	) {}
 
   getGroup$ = createEffect(() =>

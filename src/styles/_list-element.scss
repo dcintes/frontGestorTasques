@@ -1,5 +1,5 @@
 .list-element {
-  @apply py-4 px-10 flex items-center cursor-pointer gap-4;
+  @apply py-4 px-10 flex items-center cursor-pointer gap-4 hover:bg-accent-50;
 }
 
 .list-element--vertical {
