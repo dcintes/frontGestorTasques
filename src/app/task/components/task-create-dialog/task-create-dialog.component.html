@@ -13,6 +13,6 @@
   </form>
 </div>
 <div mat-dialog-actions class="flex justify-center">
-  <button mat-button color="primary" (click)="createFromTemplate()">Crear</button>
-  <button mat-button [mat-dialog-close] routerLink="/group/{{group_id}}/task/create">Nova tasca</button>
+  <button mat-raised-button color="primary" (click)="createFromTemplate()">Crear</button>
+  <button mat-button [mat-dialog-close] routerLink="/group/{{group_id}}/task/create" *ngIf="admin">Nova tasca</button>
 </div>

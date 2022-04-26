@@ -1,4 +1,9 @@
 <div class="content-full">
+
+  <p *ngIf="news.length < 1" class="text-center">
+    No hi ha cap novetat
+  </p>
+
   <ng-container *ngFor="let new of news; index as i">
 
     <ng-template [ngIf]="i==0 || new.dateFormat !== news[i-1].dateFormat">

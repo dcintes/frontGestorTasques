@@ -1,1 +1,21 @@
-<p>member-invite-dialog works!</p>
+<div mat-dialog-content>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Email</mat-label>
+    <input type="email" matInput [formControl]="email" placeholder="Ex. pat@example.com">
+    <mat-error *ngIf="email.hasError('pattern')">
+      El correu no es valid
+    </mat-error>
+    <mat-error *ngIf="email.hasError('required')">
+      El correu és <strong>obligatori</strong>
+    </mat-error>
+    <mat-error *ngIf="email.hasError('maxlength')">
+      El correu ha de tenir menys de 50 caràcters
+    </mat-error>
+  </mat-form-field>
+
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button color="primary" (click)="invite()" [disabled]="!email.valid">Convida</button>
+  <button mat-button [mat-dialog-close]="">Cancela</button>
+</div>
