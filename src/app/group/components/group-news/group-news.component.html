@@ -1,8 +1,9 @@
 <div class="content-full">
 
-  <p *ngIf="news.length < 1" class="text-center">
-    No hi ha cap novetat
-  </p>
+  <div *ngIf="news.length < 1" class="nodata">
+    <p>No hi ha cap novetat.</p>
+    <p>Creeu tasques, recompenses i convideu persones al grup</p>
+  </div>
 
   <ng-container *ngFor="let new of news; index as i">
 

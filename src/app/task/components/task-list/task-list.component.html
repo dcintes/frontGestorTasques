@@ -13,9 +13,10 @@
   </div>
 
   <h2>Les meves tasques</h2>
-  <ng-template [ngIf]="myTasks.length < 1">
-    <p class="text-center">No tens tasques assignades</p>
-  </ng-template>
+  <div *ngIf="myTasks.length < 1" class="nodata">
+    <p>No tens tasques assignades.</p>
+    <p>Podeu agafar tasques accedint a elles.</p>
+  </div>
 
   <ng-container *ngFor="let task of myTasks">
     <mat-divider></mat-divider>
@@ -24,9 +25,9 @@
   <mat-divider></mat-divider>
 
   <h2>Pendents</h2>
-  <ng-template [ngIf]="myTasks.length < 1">
-    <p class="text-center">No hi ha tasques pendents</p>
-  </ng-template>
+  <div *ngIf="myTasks.length < 1" class="nodata">
+    <p>No hi ha tasques pendents.</p>
+  </div>
   <mat-divider></mat-divider>
   <ng-container *ngFor="let task of todo">
     <mat-divider></mat-divider>

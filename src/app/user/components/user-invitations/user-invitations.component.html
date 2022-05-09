@@ -1,6 +1,11 @@
 <div class="content-full pt-4">
 
+  <div *ngIf="invitations.length < 1" class="nodata">
+    <p>No teniu cap invitació pendent</p>
+  </div>
+
   <mat-divider></mat-divider>
+
   <ng-container *ngFor="let invitation of invitations;">
 
     <div matRipple class="list-element" (click)="openDialog(invitation.id)">

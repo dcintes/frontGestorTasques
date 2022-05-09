@@ -8,7 +8,13 @@
     </div>
   </div>
 
+  <div *ngIf="groups.length < 1" class="nodata">
+    <p>No pertanyeu a cap grup.</p>
+    <p>Podeu crear un nou grup o acceptar una invitació</p>
+  </div>
+
   <mat-divider></mat-divider>
+
   <ng-container *ngFor="let group of groups;">
 
     <div matRipple class="list-element" routerLink="/group/{{group.id}}">

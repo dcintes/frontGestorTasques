@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { Forms } from '../../models/forms';
 
 @Component({
@@ -6,7 +6,7 @@ import { Forms } from '../../models/forms';
   templateUrl: './reward-icon.component.html',
   styleUrls: ['./reward-icon.component.scss']
 })
-export class RewardIconComponent implements OnInit {
+export class RewardIconComponent implements OnChanges {
 
   @Input() public icon!: string;
   @Input() public color!: string;
@@ -22,7 +22,7 @@ export class RewardIconComponent implements OnInit {
     this.textColor = '#000000';
   }
 
-  ngOnInit(): void {
+  ngOnChanges(): void {
     this.textColor = this.contrastColor(this.color);
   }
 

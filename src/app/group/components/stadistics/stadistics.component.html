@@ -2,9 +2,9 @@
 
   <div class="content">
 
-    <ng-template [ngIf]="!tasksChart">
-      <p class="text-center">No hi ha dades suficients per generar estadistiques</p>
-    </ng-template>
+    <div *ngIf="!tasksChart" class="nodata">
+      <p>No hi ha dades suficients per generar estadistiques</p>
+    </div>
 
     <ng-template [ngIf]="tasksChart">
       <h2>Tasques per usuari</h2>
