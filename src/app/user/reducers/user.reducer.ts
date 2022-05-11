@@ -1,8 +1,8 @@
 import { createReducer, on } from '@ngrx/store';
-import { UserDTO } from '../models/user.dto';
-import * as userActions from "../actions";
 import { GroupDTO } from 'src/app/group/models/group.dto';
+import * as userActions from "../actions";
 import { InvitationDTO } from '../models/invitation.dto';
+import { UserDTO } from '../models/user.dto';
 
 export interface UserState {
   user: UserDTO,
@@ -132,6 +132,11 @@ const _userReducer = createReducer(
     payload: {
       action: 'deleteUserSuccess',
     }
+  })),
+
+  on(userActions.cleanPayload, (state) => ({
+    ...state,
+    payload: null
   })),
 );
 

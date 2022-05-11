@@ -131,6 +131,11 @@ const _templateTaskReducer = createReducer(
     }
   })),
 
+  on(templateTaskActions.cleanPayload, (state) => ({
+    ...state,
+    payload: null
+  })),
+
 );
 
 export function templateTaskReducer(state: any, action: any) {

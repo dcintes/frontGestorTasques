@@ -142,6 +142,11 @@ const _groupReducer = createReducer(
     stadistics: stadistics,
   })),
 
+  on(groupActions.cleanPayload, (state) => ({
+    ...state,
+    payload: null
+  })),
+
 );
 
 export function groupReducer(state: any, action: any) {

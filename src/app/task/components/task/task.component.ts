@@ -96,6 +96,8 @@ export class TaskComponent implements OnInit {
         if(payload.action === 'deleteTaskSuccess'){
           this.router.navigate(['/group/'+payload.group_id]);
         }
+
+        this.store.dispatch(TaskActions.cleanPayload());
       }
     });
   }

@@ -18,6 +18,10 @@ export const error = createAction(
   props<{ payload: any }>()
 );
 
+export const cleanPayload = createAction(
+  '[Group] clean payload',
+);
+
 export const getMembers = createAction(
   '[Group] get group members',
   props<{ group_id: string }>()

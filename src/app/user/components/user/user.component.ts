@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControlOptions, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/app.reducer';
-import { match } from 'src/app/shared/validators/match';
-import { UserDTO } from '../../models/user.dto';
-import * as UserAction from '../../actions';
 import * as AuthAction from 'src/app/auth/actions';
-import { MatDialog } from '@angular/material/dialog';
+import { match } from 'src/app/shared/validators/match';
+import * as UserAction from '../../actions';
+import { UserDTO } from '../../models/user.dto';
 import { UserDeleteDialogComponent } from '../user-delete-dialog/user-delete-dialog.component';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user',
@@ -84,6 +84,8 @@ export class UserComponent implements OnInit {
             this.store.dispatch(AuthAction.logout());
             this.router.navigate(['/login']);
           }
+
+          this.store.dispatch(UserAction.cleanPayload());
         }
       });
   }

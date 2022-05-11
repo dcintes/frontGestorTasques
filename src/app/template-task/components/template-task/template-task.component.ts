@@ -82,6 +82,8 @@ export class TemplateTaskComponent implements OnInit {
         if(payload.action === 'deleteTemplateTaskSuccess'){
           this.router.navigate(['/group/'+payload.group_id+'/template/tasks']);
         }
+
+        this.store.dispatch(TemplateTaskActions.cleanPayload());
       }
     });
   }

@@ -16,6 +16,10 @@ export const error = createAction(
   props<{ payload: any }>()
 );
 
+export const cleanPayload = createAction(
+  '[Task] clean payload',
+);
+
 export const createTask = createAction(
   '[Task] create task',
   props<{ group_id: string, task: TaskDTO }>()

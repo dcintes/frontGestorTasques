@@ -82,6 +82,8 @@ export class GroupComponent implements OnInit {
         if(payload.action === 'deleteGroupSuccess'){
           this.router.navigate(['/']);
         }
+
+        this.store.dispatch(GroupAction.cleanPayload());
       }
     });
 

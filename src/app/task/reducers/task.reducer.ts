@@ -1,6 +1,6 @@
-import { TaskDTO } from "../models/task.dto";
 import { createReducer, on } from '@ngrx/store';
 import * as taskActions from "../actions";
+import { TaskDTO } from "../models/task.dto";
 
 export interface TaskState {
   task: TaskDTO,
@@ -139,6 +139,11 @@ const _taskReducer = createReducer(
     task: task,
     loading: false,
     loaded: true,
+  })),
+
+  on(taskActions.cleanPayload, (state) => ({
+    ...state,
+    payload: null
   })),
 
 );

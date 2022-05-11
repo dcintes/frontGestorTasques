@@ -92,6 +92,8 @@ export class TemplateRewardComponent implements OnInit {
         if(payload.action === 'claimTemplateRewardSuccess'){
           this.router.navigate(['/group', payload.reward.group_id,'reward', payload.reward.id, 'view']);
         }
+
+        this.store.dispatch(TemplateRewardActions.cleanPayload());
       }
     });
   }

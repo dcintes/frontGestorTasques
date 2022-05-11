@@ -45,6 +45,11 @@ const _templateRewardReducer = createReducer(
     error: payload
   })),
 
+  on(templateRewardActions.cleanPayload, (state) => ({
+    ...state,
+    payload: null
+  })),
+
   on(templateRewardActions.createTemplateReward, (state, {group_id, templateReward}) => ({
 		...state,
 		templateReward: templateReward,

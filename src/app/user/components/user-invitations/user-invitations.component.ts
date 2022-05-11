@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/app.reducer';
-import { InvitationDTO } from '../../models/invitation.dto';
 import * as UserAction from '../../actions';
-import { MatDialog } from '@angular/material/dialog';
+import { InvitationDTO } from '../../models/invitation.dto';
 import { InvitationDialogComponent } from '../invitation-dialog/invitation-dialog.component';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-invitations',
@@ -31,6 +31,8 @@ export class UserInvitationsComponent implements OnInit {
       // aceptació d'invitació -> redirigim al nou grup
       if(payload && payload.action && payload.action === 'acceptInvitationSuccess'){
         this.router.navigate(['/group/' + payload.invitation.group_id]);
+
+        this.store.dispatch(UserAction.cleanPayload());
       }
     });
   }

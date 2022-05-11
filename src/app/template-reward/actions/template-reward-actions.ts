@@ -17,6 +17,10 @@ export const error = createAction(
   props<{ payload: any }>()
 );
 
+export const cleanPayload = createAction(
+  '[TemplateReward] clean payload',
+);
+
 export const createTemplateReward = createAction(
   '[TemplateReward] create templateReward',
   props<{ group_id: string, templateReward: TemplateRewardDTO }>()
