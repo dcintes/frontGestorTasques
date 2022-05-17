@@ -20,6 +20,7 @@ import { TaskModule } from './task/task.module';
 import { TemplateRewardModule } from './template-reward/template-reward.module';
 import { TemplateTaskModule } from './template-task/template-task.module';
 import { UserModule } from './user/user.module';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 
 @NgModule({
@@ -45,6 +46,12 @@ import { UserModule } from './user/user.module';
     StoreDevtoolsModule.instrument({
       maxAge:25,
       logOnly: environment.production
+    }),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
     }),
   ],
   providers: [
