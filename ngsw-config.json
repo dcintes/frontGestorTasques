@@ -31,7 +31,7 @@
     {
       "name": "API",
       "urls": [
-        "https://apigestortasques.dcintes.net/api/"
+        "https://apigestortasques.dcintes.net/api/**"
       ],
       "version": 1,
       "cacheConfig": {
@@ -44,8 +44,8 @@
     {
       "name": "Avatars",
       "urls": [
-        "https://source.boringavatars.com/bauhaus/",
-        "https://avatars.dicebear.com/api/bottts/"
+        "https://source.boringavatars.com/bauhaus/**",
+        "https://avatars.dicebear.com/api/bottts/**"
       ],
       "version": 1,
       "cacheConfig": {
