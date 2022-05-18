@@ -25,17 +25,6 @@
           "/*.(svg|cur|jpg|jpeg|png|apng|webp|avif|gif|otf|ttf|woff|woff2)"
         ]
       }
-    },
-    {
-      "name": "images",
-      "installMode": "lazy",
-      "updateMode": "lazy",
-      "resources": {
-        "urls": [
-          "https://source.boringavatars.com/bauhaus/**",
-          "https://avatars.dicebear.com/api/bottts/**"
-        ]
-      }
     }
   ],
   "dataGroups": [
@@ -50,6 +39,19 @@
         "maxAge": "5m",
         "timeout": "30s",
         "strategy": "freshness"
+      }
+    },
+    {
+      "name": "Avatars",
+      "urls": [
+        "https://source.boringavatars.com/bauhaus/**",
+        "https://avatars.dicebear.com/api/bottts/**"
+      ],
+      "version": 1,
+      "cacheConfig": {
+        "maxSize": 20,
+        "maxAge": "7d",
+        "strategy": "performance"
       }
     }
   ]
