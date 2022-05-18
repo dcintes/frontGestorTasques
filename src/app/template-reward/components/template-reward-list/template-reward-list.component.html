@@ -3,7 +3,7 @@
   <div class="content">
     <div class="actions">
       <button mat-fab color="accent" routerLink="/group/{{group_id}}/template/reward/create"
-        *ngIf="authMember && authMember.admin">
+        *ngIf="authMember && authMember.admin" aria-label="Crear una nova recompensa">
         <mat-icon>add</mat-icon>
       </button>
     </div>

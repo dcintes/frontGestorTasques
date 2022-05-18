@@ -1,13 +1,13 @@
 <div class="content-full">
   <div class="content">
     <div class="flex">
-      <a mat-icon-button aria-label="Tornar" routerLink="{{create ? '/' : '/group/'+group_id}}">
+      <button mat-icon-button aria-label="Tornar" routerLink="{{create ? '/' : '/group/'+group_id}}">
         <mat-icon inline="true">arrow_back</mat-icon>
-      </a>
+      </button>
     </div>
 
     <div *ngIf="!create" class="content-center">
-      <img src="{{group | groupAvatar:350}}" alt="Logo" class="groupAvatar w-1/2">
+      <img src="{{group | groupAvatar:350}}" alt="Logo" class="groupAvatar w-1/2" width="350" height="350">
     </div>
 
     <h1 *ngIf="create">Crear nou grup</h1>

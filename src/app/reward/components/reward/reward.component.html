@@ -2,9 +2,9 @@
   <div class="content">
 
     <div class="flex">
-      <a mat-icon-button aria-label="Tornar" (click)="back()">
+      <button mat-icon-button aria-label="Tornar" (click)="back()">
         <mat-icon inline="true">arrow_back</mat-icon>
-      </a>
+      </button>
     </div>
 
     <div class="flex flex-col items-center gap-4">
@@ -15,7 +15,7 @@
       <mat-chip-list>
         <mat-chip *ngIf="claimer" routerLink="/group/{{reward.group_id}}/member/{{claimer.id}}//view">
           <mat-chip-avatar>
-            <img src="{{claimer | userAvatar:24}}" class="userAvatar">
+            <img src="{{claimer | userAvatar:24}}" class="userAvatar" alt="Avatar membre" width="24" height="24">
           </mat-chip-avatar>
           {{claimer.name}}
         </mat-chip>

@@ -2,7 +2,7 @@
 
   <div class="content">
     <div class="actions">
-      <button mat-fab color="accent" routerLink="/group/create">
+      <button mat-fab color="accent" routerLink="/group/create" aria-label="Crear grup">
         <mat-icon>add</mat-icon>
       </button>
     </div>
@@ -19,7 +19,7 @@
 
     <div matRipple class="list-element" routerLink="/group/{{group.id}}">
       <span class="list-element__image">
-        <img src="{{group | groupAvatar:32}}" alt="Logo" class="groupAvatar">
+        <img src="{{group | groupAvatar:64}}" alt="Logo" class="groupAvatar" width="32" height="32">
       </span>
       <span class="list-element__title">{{group.name}}</span>
     </div>

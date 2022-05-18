@@ -1,13 +1,13 @@
 <div class="content-full">
   <div class="content">
     <div class="flex">
-      <a mat-icon-button aria-label="Tornar" routerLink="/">
+      <button mat-icon-button aria-label="Tornar" routerLink="/">
         <mat-icon inline="true">arrow_back</mat-icon>
-      </a>
+      </button>
     </div>
 
     <div class="content-center">
-      <img src="{{user | userAvatar:350}}" class="w-1/2 userAvatar">
+      <img src="{{user | userAvatar:350}}" class="w-1/2 userAvatar" alt="Avatar usuari" width="350" height="350">
     </div>
 
     <form class="form" [formGroup]="userForm" (ngSubmit)="saveUser()">

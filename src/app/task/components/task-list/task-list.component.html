@@ -3,10 +3,10 @@
   <div class="content">
     <div class="actions">
       <button mat-fab color="accent" routerLink="/group/{{group_id}}/template/tasks"
-        *ngIf="authMember && authMember.admin">
+        *ngIf="authMember && authMember.admin" aria-label="Llistat de plantilles de tasques">
         <mat-icon>list_alt</mat-icon>
       </button>
-      <button mat-fab color="accent" (click)="createDialog()">
+      <button mat-fab color="accent" (click)="createDialog()" aria-label="Crear una tasca nova">
         <mat-icon>add</mat-icon>
       </button>
     </div>

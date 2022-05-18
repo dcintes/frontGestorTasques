@@ -2,9 +2,9 @@
 
   <div class="content">
     <div class="flex">
-      <a mat-icon-button aria-label="Tornar" routerLink="/group/{{group_id}}">
+      <button mat-icon-button aria-label="Tornar" routerLink="/group/{{group_id}}">
         <mat-icon inline="true">arrow_back</mat-icon>
-      </a>
+      </button>
     </div>
 
     <h1>Membres</h1>
@@ -24,7 +24,7 @@
 
     <div matRipple class="list-element" routerLink="../member/{{member.id}}/view">
       <span class="list-element__image">
-        <img src="{{member | userAvatar:32}}">
+        <img src="{{member | userAvatar:32}}" alt="Avatar membre" width="32" height="32">
       </span>
 
       <span class="list-element__title">{{member.name}}</span>
