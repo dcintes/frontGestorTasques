@@ -18,6 +18,7 @@ import { UserGroupsComponent } from './components/user-groups/user-groups.compon
 import { UserHomeComponent } from './components/user-home/user-home.component';
 import { UserInvitationsComponent } from './components/user-invitations/user-invitations.component';
 import { UserComponent } from './components/user/user.component';
+import { UserRoutingModule } from './user-routing.module';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { UserComponent } from './components/user/user.component';
   ],
   imports: [
     CommonModule,
+    UserRoutingModule,
     SharedModule,
     RouterModule,
     ReactiveFormsModule,

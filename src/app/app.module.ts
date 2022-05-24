@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ServiceWorkerModule } from '@angular/service-worker';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -11,16 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EffectsArray } from './app.effects';
 import { appReducers } from './app.reducer';
-import { AuthModule } from './auth/auth.module';
-import { GroupModule } from './group/group.module';
-import { MemberModule } from './member/member.module';
-import { RewardModule } from './reward/reward.module';
 import { AuthInterceptorService } from './shared/services/auth-interceptor.service';
-import { TaskModule } from './task/task.module';
-import { TemplateRewardModule } from './template-reward/template-reward.module';
-import { TemplateTaskModule } from './template-task/template-task.module';
-import { UserModule } from './user/user.module';
-import { ServiceWorkerModule } from '@angular/service-worker';
 
 
 @NgModule({
@@ -33,14 +25,6 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     AppRoutingModule,
     StoreModule.forRoot(appReducers),
     EffectsModule.forRoot(EffectsArray),
-    AuthModule,
-    UserModule,
-    GroupModule,
-    MemberModule,
-    TaskModule,
-    RewardModule,
-    TemplateTaskModule,
-    TemplateRewardModule,
     BrowserAnimationsModule,
     MatSnackBarModule,
     StoreDevtoolsModule.instrument({

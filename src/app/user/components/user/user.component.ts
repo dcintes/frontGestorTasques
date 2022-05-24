@@ -82,7 +82,7 @@ export class UserComponent implements OnInit {
           }
           if(payload.action === 'deleteUserSuccess'){
             this.store.dispatch(AuthAction.logout());
-            this.router.navigate(['/login']);
+            this.router.navigate(['/auth/login']);
           }
 
           this.store.dispatch(UserAction.cleanPayload());

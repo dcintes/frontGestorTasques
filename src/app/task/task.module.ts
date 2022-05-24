@@ -18,6 +18,7 @@ import { TaskCreateDialogComponent } from './components/task-create-dialog/task-
 import { TaskDeleteDialogComponent } from './components/task-delete-dialog/task-delete-dialog.component';
 import { TaskListComponent } from './components/task-list/task-list.component';
 import { TaskComponent } from './components/task/task.component';
+import { TaskRoutingModule } from './task-routing.module';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { TaskComponent } from './components/task/task.component';
   ],
   imports: [
     CommonModule,
+    TaskRoutingModule,
     SharedModule,
     RouterModule,
     ReactiveFormsModule,

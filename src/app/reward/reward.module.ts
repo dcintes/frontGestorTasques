@@ -7,6 +7,7 @@ import { SharedModule } from '../shared/shared.module';
 import { RewardCardComponent } from './components/reward-card/reward-card.component';
 import { RewardIconComponent } from './components/reward-icon/reward-icon.component';
 import { RewardComponent } from './components/reward/reward.component';
+import { RewardRoutingModule } from './reward-routing.module';
 
 
 
@@ -18,6 +19,7 @@ import { RewardComponent } from './components/reward/reward.component';
   ],
   imports: [
     CommonModule,
+    RewardRoutingModule,
     RouterModule,
     MatIconModule,
     SharedModule,

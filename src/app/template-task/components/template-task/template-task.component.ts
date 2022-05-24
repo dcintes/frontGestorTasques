@@ -80,7 +80,7 @@ export class TemplateTaskComponent implements OnInit {
           this.router.navigate(['/group/'+payload.group_id+'/template/task/'+payload.templateTask_id+'/view']);
         }
         if(payload.action === 'deleteTemplateTaskSuccess'){
-          this.router.navigate(['/group/'+payload.group_id+'/template/tasks']);
+          this.router.navigate(['/group/'+payload.group_id+'/template/task']);
         }
 
         this.store.dispatch(TemplateTaskActions.cleanPayload());
@@ -143,7 +143,7 @@ export class TemplateTaskComponent implements OnInit {
   }
 
   back(): void {
-    this.router.navigate(['/group/'+this.group_id+'/template/tasks']);
+    this.router.navigate(['/group/'+this.group_id+'/template/task']);
   }
 
   deleteDialog(): void {

@@ -22,7 +22,7 @@
   <mat-divider></mat-divider>
   <ng-container *ngFor="let member of members">
 
-    <div matRipple class="list-element" routerLink="../member/{{member.id}}/view">
+    <div matRipple class="list-element" routerLink="{{member.id}}/view">
       <span class="list-element__image">
         <img src="{{member | userAvatar:32}}" alt="Avatar membre" width="32" height="32">
       </span>

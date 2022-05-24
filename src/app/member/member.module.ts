@@ -15,6 +15,7 @@ import { MemberDeleteDialogComponent } from './components/member-delete-dialog/m
 import { MemberInviteDialogComponent } from './components/member-invite-dialog/member-invite-dialog.component';
 import { MemberListComponent } from './components/member-list/member-list.component';
 import { MemberComponent } from './components/member/member.component';
+import { MemberRoutingModule } from './member-routing.module';
 
 
 
@@ -27,6 +28,7 @@ import { MemberComponent } from './components/member/member.component';
   ],
   imports: [
     CommonModule,
+    MemberRoutingModule,
     SharedModule,
     RouterModule,
     ReactiveFormsModule,

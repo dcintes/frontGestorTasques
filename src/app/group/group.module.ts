@@ -21,6 +21,7 @@ import { GroupHomeComponent } from './components/group-home/group-home.component
 import { GroupNewsComponent } from './components/group-news/group-news.component';
 import { GroupComponent } from './components/group/group.component';
 import { StadisticsComponent } from './components/stadistics/stadistics.component';
+import { GroupRoutingModule } from './group-routing.module';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { StadisticsComponent } from './components/stadistics/stadistics.componen
   ],
   imports: [
     CommonModule,
+    GroupRoutingModule,
     SharedModule,
     RouterModule,
     ReactiveFormsModule,

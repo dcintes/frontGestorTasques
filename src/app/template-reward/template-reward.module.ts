@@ -15,6 +15,7 @@ import { TemplateRewardCardComponent } from './components/template-reward-card/t
 import { TemplateRewardDeleteDialogComponent } from './components/template-reward-delete-dialog/template-reward-delete-dialog.component';
 import { TemplateRewardListComponent } from './components/template-reward-list/template-reward-list.component';
 import { TemplateRewardComponent } from './components/template-reward/template-reward.component';
+import { TemplateRewardRoutingModule } from './template-reward-routing.module';
 
 
 
@@ -28,6 +29,7 @@ import { TemplateRewardComponent } from './components/template-reward/template-r
   ],
   imports: [
     CommonModule,
+    TemplateRewardRoutingModule,
     RouterModule,
     ReactiveFormsModule,
     MatInputModule,

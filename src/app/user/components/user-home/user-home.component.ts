@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { take } from 'rxjs';
 import { AppState } from 'src/app/app.reducer';
 import * as AuthAction from 'src/app/auth/actions';
-import { LocalStorageService } from 'src/app/shared/services/local-storage.service';
 import * as UserAction from 'src/app/user/actions';
 import { UserDTO } from '../../models/user.dto';
 
@@ -35,7 +33,7 @@ export class UserHomeComponent implements OnInit {
       if (auth.auth.user_id) {
         this.store.dispatch(UserAction.getUser({id: auth.auth.user_id}));
       } else {
-        this.router.navigate(['/login']);
+        this.router.navigate(['/auth/login']);
       }
     });
   }
@@ -43,7 +41,7 @@ export class UserHomeComponent implements OnInit {
   logout(): void {
     console.log('logout');
     this.store.dispatch(AuthAction.logout());
-    this.router.navigate(['/login']);
+    this.router.navigate(['/auth/login']);
   }
 
 }
