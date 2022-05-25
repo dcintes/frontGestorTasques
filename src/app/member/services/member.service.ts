@@ -35,7 +35,7 @@ export class MemberService {
 
   deleteMember(group_id: string, member_id: string): Observable<any> {
     return this.http
-      .delete(this.baseUrl+'group/'+group_id+'/member'+member_id)
+      .post(this.baseUrl+'group/'+group_id+'/member/'+member_id+'/exit', {})
       .pipe(catchError(err => {
         return this.errorService.handleHttpError(err)
       }));

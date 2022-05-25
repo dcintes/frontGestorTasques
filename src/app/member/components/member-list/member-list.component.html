@@ -33,7 +33,7 @@
 
       <span class="list-element__action">
         <button mat-icon-button color="warn" aria-label="Eliminar el membre"
-          (click)="$event.stopPropagation(); delete(member); " *ngIf="!member.admin">
+          (click)="$event.stopPropagation(); delete(member); " *ngIf="!member.admin && authMember.admin">
           <mat-icon inline="true">cancel</mat-icon>
         </button>
       </span>
@@ -43,8 +43,9 @@
   </ng-container>
 
   <div class="content">
-    <button mat-raised-button color="warn" type="button" *ngIf="authMember" (click)="delete(authMember)">Sortir del
-      grup</button>
+    <button mat-raised-button color="warn" type="button" *ngIf="authMember.id" (click)="delete(authMember)">
+      Sortir del grup
+    </button>
   </div>
 
 </div>
