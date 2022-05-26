@@ -24,7 +24,7 @@
 
     <div matRipple class="list-element" routerLink="{{member.id}}/view">
       <span class="list-element__image">
-        <img src="{{member | userAvatar:32}}" alt="Avatar membre" width="32" height="32">
+        <img src="{{member | userAvatar:32}}" alt="Avatar membre" width="32" height="32" loading="lazy">
       </span>
 
       <span class="list-element__title">{{member.name}}</span>

@@ -7,7 +7,7 @@
     </div>
 
     <div class="content-center">
-      <img src="{{member | userAvatar:350}}" class="w-1/2" alt="Avatar membre" width="350" height="350">
+      <img src="{{member | userAvatar:350}}" class="w-1/2" alt="Avatar membre" width="350" height="350" loading="lazy">
       <h1>{{member.name}}</h1>
       <mat-chip-list>
         <mat-chip *ngIf="member.created_at" color="accent">

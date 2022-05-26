@@ -19,7 +19,7 @@
 
     <div matRipple class="list-element" routerLink="/group/{{group.id}}">
       <span class="list-element__image">
-        <img src="{{group | groupAvatar:64}}" alt="Logo" class="groupAvatar" width="32" height="32">
+        <img src="{{group | groupAvatar:64}}" alt="Logo" class="groupAvatar" width="32" height="32" loading="lazy">
       </span>
       <span class="list-element__title">{{group.name}}</span>
     </div>

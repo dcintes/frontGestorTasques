@@ -8,7 +8,8 @@
     </mat-chip>
     <mat-chip *ngIf="assigned" (click)="goMember(); $event.stopPropagation();">
       <mat-chip-avatar>
-        <img src="{{assigned | userAvatar:24}}" class="userAvatar" alt="Avatar membre" width="24" height="24">
+        <img src="{{assigned | userAvatar:24}}" class="userAvatar" alt="Avatar membre" width="24" height="24"
+          loading="lazy">
       </mat-chip-avatar>
       {{assigned.name}}
     </mat-chip>

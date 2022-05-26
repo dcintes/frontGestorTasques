@@ -7,7 +7,8 @@
     </div>
 
     <div class="content-center">
-      <img src="{{user | userAvatar:350}}" class="w-1/2 userAvatar" alt="Avatar usuari" width="350" height="350">
+      <img src="{{user | userAvatar:350}}" class="w-1/2 userAvatar" alt="Avatar usuari" width="350" height="350"
+        loading="lazy">
     </div>
 
     <form class="form" [formGroup]="userForm" (ngSubmit)="saveUser()">

@@ -8,7 +8,8 @@
     </mat-chip>
     <mat-chip *ngIf="claimer" (click)="goMember(); $event.stopPropagation();">
       <mat-chip-avatar>
-        <img src="{{claimer | userAvatar:24}}" class="userAvatar" alt="Avatar membre" width="24" height="24">
+        <img src="{{claimer | userAvatar:24}}" class="userAvatar" alt="Avatar membre" width="24" height="24"
+          loading="lazy">
       </mat-chip-avatar>
       {{claimer.name}}
     </mat-chip>

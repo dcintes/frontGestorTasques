@@ -7,7 +7,8 @@
     </div>
 
     <div *ngIf="!create" class="content-center">
-      <img src="{{group | groupAvatar:350}}" alt="Logo" class="groupAvatar w-1/2" width="350" height="350">
+      <img src="{{group | groupAvatar:350}}" alt="Logo" class="groupAvatar w-1/2" width="350" height="350"
+        loading="lazy">
     </div>
 
     <h1 *ngIf="create">Crear nou grup</h1>
